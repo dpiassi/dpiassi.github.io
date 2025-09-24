@@ -1,16 +1,17 @@
+
 <div class="language-switcher">
   <div class="dropdown">
     <button class="dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fa fa-globe"></i>
-  <span id="current-language" data-en="English" data-pt-br="Português (BR)">English</span>
+      <span id="current-language" data-en="{{ site.data.en.language.en }}" data-pt-br="{{ site.data['pt-br'].language.pt-br }}">{{ site.data.en.language.en }}</span>
       <i class="fa fa-caret-down"></i>
     </button>
     <ul class="dropdown-menu" aria-labelledby="languageDropdown">
       <li>
-  <a href="#" class="language-option" data-lang="en" data-en="English" data-pt-br="Inglês">English</a>
+        <a href="#" class="language-option" data-lang="en" data-en="{{ site.data.en.language.en }}" data-pt-br="{{ site.data['pt-br'].language.en }}">{{ site.data.en.language.en }}</a>
       </li>
       <li>
-  <a href="#" class="language-option" data-lang="pt-br" data-en="Portuguese (BR)" data-pt-br="Português (BR)">Português (BR)</a>
+        <a href="#" class="language-option" data-lang="pt-br" data-en="{{ site.data.en.language['pt-br'] }}" data-pt-br="{{ site.data['pt-br'].language['pt-br'] }}">{{ site.data['pt-br'].language['pt-br'] }}</a>
       </li>
     </ul>
   </div>

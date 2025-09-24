@@ -29,14 +29,23 @@ $(function () {
       if (honeypot) {
         console.warn("Honeypot triggered — dropping submission.");
         // To avoid revealing bot detection, show the normal success message.
-        var fakeTitle =
-          typeof currentLang !== "undefined" && currentLang === "pt-br"
-            ? "<strong>Obrigado pela sua mensagem!</strong>"
-            : "<strong>Your message has been sent.</strong>";
-        var fakeBody =
-          typeof currentLang !== "undefined" && currentLang === "pt-br"
-            ? " Entraremos em contato em breve."
-            : " We'll get back to you soon.";
+        function _t(enKey, ptKey, defaultEn) {
+          try {
+            var lang = typeof currentLang !== 'undefined' ? currentLang : 'en';
+            if (lang === 'pt-br' && window.I18N && window.I18N['pt-br'] && window.I18N['pt-br'].js && window.I18N['pt-br'].js[ptKey]) {
+              return window.I18N['pt-br'].js[ptKey];
+            }
+            if (window.I18N && window.I18N.en && window.I18N.en.js && window.I18N.en.js[enKey]) {
+              return window.I18N.en.js[enKey];
+            }
+          } catch (e) {
+            // fallthrough to default
+          }
+          return defaultEn || '';
+        }
+
+        var fakeTitle = _t('honeypot_title_en', 'honeypot_title_pt', "<strong>Your message has been sent.</strong>");
+        var fakeBody = _t('honeypot_body_en', 'honeypot_body_pt', " We'll get back to you soon.");
         $("#success").html("<div class='alert alert-success'>");
         $("#success > .alert-success").html(
           "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
@@ -48,10 +57,7 @@ $(function () {
       }
 
       // Show a temporary sending message
-      var sendingMsg =
-        typeof currentLang !== "undefined" && currentLang === "pt-br"
-          ? "<strong>Enviando...</strong>"
-          : "<strong>Sending...</strong>";
+      var sendingMsg = _t('sending','sending','<strong>Sending...</strong>');
       $("#success").html("<div class='alert alert-info'>");
       $("#success > .alert-info").html(
         "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
@@ -65,11 +71,7 @@ $(function () {
         $("#success > .alert-danger").html(
           "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
         );
-        $("#success > .alert-danger").append(
-          typeof currentLang !== "undefined" && currentLang === "pt-br"
-            ? "<strong>Erro: Abra este site via um servidor (http) para testar o formulário.</strong>"
-            : "<strong>Error: open this site via a local server (http) to test the form).</strong>"
-        );
+  $("#success > .alert-danger").append(_t('file_protocol_error_en','file_protocol_error_pt','<strong>Error: open this site via a local server (http) to test the form).</strong>'));
         $("#success > .alert-danger").append("</div>");
         return;
       }
@@ -94,14 +96,8 @@ $(function () {
           headers: { Accept: "application/json" },
           success: function (data, textStatus, jqXHR) {
             console.info("Formspree success", textStatus, jqXHR, data);
-            var successTitle =
-              typeof currentLang !== "undefined" && currentLang === "pt-br"
-                ? "<strong>Obrigado pela sua mensagem!</strong>"
-                : "<strong>Your message has been sent.</strong>";
-            var successBody =
-              typeof currentLang !== "undefined" && currentLang === "pt-br"
-                ? " Entraremos em contato em breve."
-                : " We'll get back to you soon.";
+            var successTitle = _t('success_title_en','success_title_pt','<strong>Your message has been sent.</strong>');
+            var successBody = _t('success_body_en','success_body_pt',' We'll get back to you soon.');
             $("#success").html("<div class='alert alert-success'>");
             $("#success > .alert-success").html(
               "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
@@ -114,14 +110,8 @@ $(function () {
           },
           error: function (jqXHR, textStatus, errorThrown) {
             console.error("Formspree error", textStatus, errorThrown, jqXHR);
-            var failTitle =
-              typeof currentLang !== "undefined" && currentLang === "pt-br"
-                ? "<strong>Desculpe, algo deu errado.</strong>"
-                : "<strong>Sorry, it looks like something went wrong.</strong>";
-            var failBody =
-              typeof currentLang !== "undefined" && currentLang === "pt-br"
-                ? " Tente novamente mais tarde."
-                : " Please try again later.";
+            var failTitle = _t('fail_title_en','fail_title_pt','<strong>Sorry, it looks like something went wrong.</strong>');
+            var failBody = _t('fail_body_en','fail_body_pt',' Please try again later.');
             $("#success").html("<div class='alert alert-danger'>");
             $("#success > .alert-danger").html(
               "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"

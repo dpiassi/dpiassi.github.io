@@ -3,7 +3,7 @@
 
   <div class="wrapper">
 
-  <h2 class="footer-heading" data-en="{{ site.title | escape }}" data-pt-br="{{ site.data.pt-br.header.title | escape }}">{{ site.title | escape }}</h2>
+  <h2 class="footer-heading" data-en="{{ site.title | escape }}" data-pt-br="{{ site.data['pt-br'].header.title | escape }}">{{ site.title | escape }}</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
@@ -37,21 +37,21 @@
           {%- endif -%}
           
           <li>
-            <a href="https://linkedin.com/in/dpiassi" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/{{ site.linkedin_username | default: 'dpiassi' }}" target="_blank" rel="noopener noreferrer">
               <span class="icon icon--linkedin">
                 <svg viewBox="0 0 16 16" width="16px" height="16px">
                   <path fill="#828282" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zM4.743 13.635H2.374V6h2.37v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z"/>
                 </svg>
               </span>
-              <span class="username" data-en="dpiassi" data-pt-br="dpiassi">dpiassi</span>
+        <span class="username" data-en="{{ site.linkedin_username | default: 'dpiassi' }}" data-pt-br="{{ site.linkedin_username | default: 'dpiassi' }}">{{ site.linkedin_username | default: 'dpiassi' }}</span>
             </a>
           </li>
         </ul>
       </div>
 
-      <div class="footer-col footer-col-3">
-        <p data-en="{{ site.description | escape }}" data-pt-br="{{ site.data.pt-br.about.description | escape }}">{{- site.description | escape -}}</p>
-      </div>
+    <div class="footer-col footer-col-3">
+  <p data-en="{{ site.data.en.footer.philosophy_text }}" data-pt-br="{{ site.data['pt-br'].footer.philosophy_text }}">{{ site.data.en.footer.philosophy_text }}</p>
+    </div>
 
     </div>
 

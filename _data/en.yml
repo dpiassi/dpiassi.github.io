@@ -1,0 +1,172 @@
+nav:
+  portfolio: "Portfolio"
+  about: "About"
+  contact: "Contact"
+
+header:
+  title: "DANDAMPI"
+  subtitle: "Code, Culture & Creativity. Connected."
+
+about:
+  title: "What We Do"
+  paragraphs:
+    - "<strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling."
+    - "<strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics."
+    - "<strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences."
+    - "<strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms."
+    - "<strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic."
+    - "<strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms."
+  start_project: "Start a Project"
+
+portfolio:
+  title: "Portfolio"
+  filter:
+    all: "All Projects"
+    roblox: "Roblox"
+    mobile: "Mobile"
+    ar: "AR"
+    web: "Web"
+    educational: "Educational"
+    cultural: "Cultural"
+    children: "Children"
+    sports: "Sports"
+    vehicles: "Vehicles"
+    multiplayer: "Multiplayer"
+
+contact:
+  title: "Let's Work Together"
+  subtitle: "Ready to create something amazing? Get in touch and let's discuss your project."
+  who_title: "Who We Work With"
+  who:
+    - title: "Brands and agencies"
+      desc: "seeking playful, interactive digital engagement"
+    - title: "NGOs and educational institutions"
+      desc: "looking to teach through games"
+    - title: "Cultural organizations"
+      desc: "aiming to preserve and promote regional identity"
+    - title: "Media and entertainment projects"
+      desc: "that demand strong technical and creative integration"
+  direct_email: "Direct Email:"
+  available: "Available for projects worldwide"
+
+  form:
+    label_name: "Name"
+    placeholder_name: "Name"
+    validation_name: "Please enter your name."
+    label_email: "Email Address"
+    placeholder_email: "Email Address"
+    validation_email: "Please enter your email address."
+    label_company: "Company/Organization"
+    placeholder_company: "Company/Organization"
+    label_project_type: "Project Type"
+    option_select_project_type: "Select Project Type"
+    option_roblox: "Roblox Development"
+    option_mobile: "Mobile Games & Apps"
+    option_ar: "Augmented Reality"
+    option_vr: "Virtual Reality"
+    option_web: "Web Development"
+    option_phygital: "Phygital Campaign"
+    option_other: "Other"
+    label_message: "Message"
+    placeholder_message: "Tell us about your project..."
+    validation_message: "Please enter a message."
+    send_button: "Send Message"
+
+footer:
+  philosophy_title: "Our Philosophy"
+  philosophy_text: "At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire."
+  connect_title: "Connect With Us"
+  technology_title: "Technology"
+  technology_text: "We deliver projects that users want to return to, talk about, and remember through playful, purposeful design."
+  studio_tag: "Creative Technology Studio"
+
+site:
+  copyright: "Copyright"
+
+modal:
+  categories: "Categories:"
+  play: "Play Now"
+  download: "Download"
+  view_project: "View Project"
+  instagram: "Instagram"
+  close: "Close"
+
+aria:
+  toggle_navigation: "Toggle navigation"
+  profile_picture: "Profile Picture"
+  previous: "Previous"
+  next: "Next"
+
+buttons:
+  close: "Close"
+  play: "Play"
+  demo: "Demo"
+  download: "Download"
+  visit: "Visit"
+
+language:
+  select: "Language"
+  en: "English"
+  pt-br: "Português (BR)"
+
+js:
+  sending: "<strong>Sending...</strong>"
+  honeypot_title_en: "<strong>Your message has been sent.</strong>"
+  honeypot_body_en: " We'll get back to you soon."
+  honeypot_title_pt: "<strong>Obrigado pela sua mensagem!</strong>"
+  honeypot_body_pt: " Entraremos em contato em breve."
+  file_protocol_error_en: "<strong>Error: open this site via a local server (http) to test the form).</strong>"
+  file_protocol_error_pt: "<strong>Erro: Abra este site via um servidor (http) para testar o formulário.</strong>"
+  success_title_en: "<strong>Your message has been sent.</strong>"
+  success_body_en: " We'll get back to you soon."
+  success_title_pt: "<strong>Obrigado pela sua mensagem!</strong>"
+  success_body_pt: " Entraremos em contato em breve."
+  fail_title_en: "<strong>Sorry, it looks like something went wrong.</strong>"
+  fail_body_en: " Please try again later."
+  fail_title_pt: "<strong>Desculpe, algo deu errado.</strong>"
+  fail_body_pt: " Tente novamente mais tarde."
+
+projects:
+  "Surpresa World":
+    name: "Surpresa World"
+    description: "Educational Roblox game created in partnership with Nestlé, exploring chocolate production through sustainability-themed missions with AR and QR integration."
+
+  "LOUD League: Soccer Legends":
+    name: "LOUD League: Soccer Legends"
+    description: "Competitive multiplayer soccer game for Latin America's leading esports brand, featuring custom avatars and leaderboard progression."
+
+  "Sportv Land":
+    name: "Sportv Land"
+    description: "Interactive world for Brazil's largest sports television network, filled with themed minigames and seasonal events."
+
+  "Soapbox: Race Mayhem":
+    name: "Soapbox: Race Mayhem"
+    description: "Multiplayer downhill racing game featuring fully customizable soapbox cars, physics-based collisions, and chaotic gameplay across vibrant obstacle tracks."
+
+  "Hyperlight Wings":
+    name: "Hyperlight Wings"
+    description: "Roblox flight simulation developed during Roblox Fall Accelerator 2021, featuring advanced physics and multiplayer mechanics."
+
+  "InPeace Metaverse":
+    name: "InPeace Metaverse"
+    description: "Gamified ecosystem for faith-based education and exploration, available on Android and iOS with community spaces and narrative missions."
+
+  "Letters and Sounds of Nature":
+    name: "Letters and Sounds of Nature"
+    description: "Phonics-based educational game for young learners, combining nature themes with literacy development through interactive mobile gameplay."
+
+  "Culinária Capixaba":
+    name: "Culinária Capixaba"
+    description: "Augmented reality application teaching traditional Brazilian cuisine through cultural storytelling with geolocation and object tracking."
+
+  "Revolta de Queimados":
+    name: "Revolta de Queimados"
+    description: "Immersive historical experience blending mobile gameplay with AR to narrate an important local rebellion in Brazilian history."
+
+  "Boneco Neco: Adventures on Capixaba's Land":
+    name: "Boneco Neco: Adventures on Capixaba's Land"
+    description: "Web and mobile game introducing children to regional culture through exploration and quests set in real Brazilian landscapes."
+
+  "Coloring Capixaba's Culture":
+    name: "Coloring Capixaba's Culture"
+    description: "Interactive coloring book app featuring traditional characters and artifacts from local folklore and culinary culture."

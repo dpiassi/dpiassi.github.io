@@ -3,8 +3,23 @@
 <html>
     {% include head.html %}
     <body id="page-top" class="index">
-        <!-- Include the language switcher -->
-        {% include language-switcher.html %}
+                <!-- Include the language switcher -->
+                {% include language-switcher.html %}
+
+                <!-- Expose translations to JavaScript -->
+                <script>
+                    (function(){
+                        try {
+                            window.I18N = {
+                                en: {{ site.data.en | jsonify }},
+                                'pt-br': {{ site.data['pt-br'] | jsonify }}
+                            };
+                        } catch (e) {
+                            console.error('I18N initialization failed', e);
+                            window.I18N = { en: {}, 'pt-br': {} };
+                        }
+                    })();
+                </script>
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -12,7 +27,7 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only" data-en="Toggle navigation" data-pt-br="Alternar navegação">Toggle navigation</span>
+                        <span class="sr-only" data-en="{{ site.data.en.aria.toggle_navigation }}" data-pt-br="{{ site.data['pt-br'].aria.toggle_navigation }}">{{ site.data.en.aria.toggle_navigation }}</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -27,13 +42,13 @@
                             <a href="#page-top"></a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#portfolio" data-en="Portfolio" data-pt-br="Portfólio">Portfolio</a>
+                            <a href="#portfolio" data-en="{{ site.data.en.nav.portfolio }}" data-pt-br="{{ site.data['pt-br'].nav.portfolio }}">{{ site.data.en.nav.portfolio }}</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#about" data-en="About" data-pt-br="Sobre">About</a>
+                            <a href="#about" data-en="{{ site.data.en.nav.about }}" data-pt-br="{{ site.data['pt-br'].nav.about }}">{{ site.data.en.nav.about }}</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#contact" data-en="Contact" data-pt-br="Contato">Contact</a>
+                            <a href="#contact" data-en="{{ site.data.en.nav.contact }}" data-pt-br="{{ site.data['pt-br'].nav.contact }}">{{ site.data.en.nav.contact }}</a>
                         </li>
                     </ul>
                 </div>
@@ -49,9 +64,9 @@
                         <img class="img-responsive" src="{{ site.header.avatar | prepend: site.baseurl }}" alt="{{ site.header.title | default: site.title }}" data-en-alt="Profile Picture" data-pt-br-alt="Foto de Perfil">
                         {% endif %}
                         <div class="intro-text">
-                            <span class="name" data-en="{{ site.header.title | default: site.title }}" data-pt-br="{{ site.data.pt-br.header.title | default: 'DANDAMPI' }}">{{ site.header.title | default: site.title }}</span>
+                            <span class="name" data-en="{{ site.data.en.header.title | default: site.header.title | default: site.title }}" data-pt-br="{{ site.data['pt-br'].header.title | default: site.header.title | default: site.title }}">{{ site.data.en.header.title | default: site.header.title | default: site.title }}</span>
                             <hr class="star-light">
-                            <span class="skills" data-en="{{ site.header.subtitle }}" data-pt-br="{{ site.data.pt-br.header.subtitle | default: 'Código, Cultura & Criatividade. Conectados.' }}">{{ site.header.subtitle }}</span>
+                            <span class="skills" data-en="{{ site.data.en.header.subtitle | default: site.header.subtitle }}" data-pt-br="{{ site.data['pt-br'].header.subtitle | default: site.header.subtitle }}">{{ site.data.en.header.subtitle | default: site.header.subtitle }}</span>
                         </div>
                     </div>
                 </div>
@@ -63,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 data-en="Portfolio" data-pt-br="Portfólio">Portfolio</h2>
+                        <h2 data-en="{{ site.data.en.portfolio.title }}" data-pt-br="{{ site.data['pt-br'].portfolio.title }}">{{ site.data.en.portfolio.title }}</h2>
                         <hr class="star-primary">
                     </div>
                 </div>
@@ -72,17 +87,17 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="portfolio-filter text-center">
-                            <button type="button" class="filter-btn active" data-filter="all" data-en="All Projects" data-pt-br="Todos os Projetos">All Projects</button>
-                            <button type="button" class="filter-btn" data-filter="roblox" data-en="Roblox" data-pt-br="Roblox">Roblox</button>
-                            <button type="button" class="filter-btn" data-filter="mobile" data-en="Mobile" data-pt-br="Mobile">Mobile</button>
-                            <button type="button" class="filter-btn" data-filter="ar" data-en="AR" data-pt-br="RA">AR</button>
-                            <button type="button" class="filter-btn" data-filter="web" data-en="Web" data-pt-br="Web">Web</button>
-                            <button type="button" class="filter-btn" data-filter="educational" data-en="Educational" data-pt-br="Educacional">Educational</button>
-                            <button type="button" class="filter-btn" data-filter="cultural" data-en="Cultural" data-pt-br="Cultural">Cultural</button>
-                            <button type="button" class="filter-btn" data-filter="children" data-en="Children" data-pt-br="Infantil">Children</button>
-                            <button type="button" class="filter-btn" data-filter="sports" data-en="Sports" data-pt-br="Esportes">Sports</button>
-                            <button type="button" class="filter-btn" data-filter="vehicles" data-en="Vehicles" data-pt-br="Veículos">Vehicles</button>
-                            <button type="button" class="filter-btn" data-filter="multiplayer" data-en="Multiplayer" data-pt-br="Multiplayer">Multiplayer</button>
+                            <button type="button" class="filter-btn active" data-filter="all" data-en="{{ site.data.en.portfolio.filter.all }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.all }}">{{ site.data.en.portfolio.filter.all }}</button>
+                            <button type="button" class="filter-btn" data-filter="roblox" data-en="{{ site.data.en.portfolio.filter.roblox }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.roblox }}">{{ site.data.en.portfolio.filter.roblox }}</button>
+                            <button type="button" class="filter-btn" data-filter="mobile" data-en="{{ site.data.en.portfolio.filter.mobile }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.mobile }}">{{ site.data.en.portfolio.filter.mobile }}</button>
+                            <button type="button" class="filter-btn" data-filter="ar" data-en="{{ site.data.en.portfolio.filter.ar }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.ar }}">{{ site.data.en.portfolio.filter.ar }}</button>
+                            <button type="button" class="filter-btn" data-filter="web" data-en="{{ site.data.en.portfolio.filter.web }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.web }}">{{ site.data.en.portfolio.filter.web }}</button>
+                            <button type="button" class="filter-btn" data-filter="educational" data-en="{{ site.data.en.portfolio.filter.educational }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.educational }}">{{ site.data.en.portfolio.filter.educational }}</button>
+                            <button type="button" class="filter-btn" data-filter="cultural" data-en="{{ site.data.en.portfolio.filter.cultural }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.cultural }}">{{ site.data.en.portfolio.filter.cultural }}</button>
+                            <button type="button" class="filter-btn" data-filter="children" data-en="{{ site.data.en.portfolio.filter.children }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.children }}">{{ site.data.en.portfolio.filter.children }}</button>
+                            <button type="button" class="filter-btn" data-filter="sports" data-en="{{ site.data.en.portfolio.filter.sports }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.sports }}">{{ site.data.en.portfolio.filter.sports }}</button>
+                            <button type="button" class="filter-btn" data-filter="vehicles" data-en="{{ site.data.en.portfolio.filter.vehicles }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.vehicles }}">{{ site.data.en.portfolio.filter.vehicles }}</button>
+                            <button type="button" class="filter-btn" data-filter="multiplayer" data-en="{{ site.data.en.portfolio.filter.multiplayer }}" data-pt-br="{{ site.data['pt-br'].portfolio.filter.multiplayer }}">{{ site.data.en.portfolio.filter.multiplayer }}</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +116,7 @@
                                          onerror="this.src='https://via.placeholder.com/300x300/003366/FFFFFF?text={{ project.name | url_encode }}'"
                                          class="portfolio-image" alt="{{ project.name }}">
                                 </div>
-                                <h4 class="portfolio-title" data-en="{{ project.name }}" data-project-key="{{ project.name }}">{{ project.name }}</h4>
+                                <h4 class="portfolio-title" data-en="{{ site.data.en.projects[project.name].name | default: project.name }}" data-project-key="{{ project.name }}">{{ site.data.en.projects[project.name].name | default: project.name }}</h4>
                             </a>
                         </div>
                     {% endfor %}
@@ -114,24 +129,28 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 data-en="What We Do" data-pt-br="O Que Fazemos">What We Do</h2>
+                        <h2 data-en="{{ site.data.en.about.title }}" data-pt-br="{{ site.data['pt-br'].about.title }}">{{ site.data.en.about.title }}</h2>
                         <hr class="star-light">
                     </div>
                 </div>
                     <div class="row">
-                        <div class="col-lg-6" data-en="">
-                            <p data-en="<strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling." data-pt-br="<strong>Experiências Digitais:</strong> Criamos mundos 3D imersivos, jogos multiplayer e simulações interativas em plataformas como Roblox, Unity e Godot. Ideal para iniciativas educacionais, campanhas de marca e narrativa institucional."><strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling.</p>
-                            <p data-en="<strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics." data-pt-br="<strong>Campanhas Phygital:</strong> Conectamos produtos do mundo real a experiências digitais por meio de QR codes, realidade aumentada e mecânicas de recompensa."><strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics.</p>
-                            <p data-en="<strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences." data-pt-br="<strong>Jogos e Apps Mobile:</strong> Projetamos e desenvolvemos aplicativos móveis para Android e iOS, incluindo jogos educativos, guias culturais e experiências com RA."><strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences.</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <p data-en="<strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms." data-pt-br="<strong>Desenvolvimento de Software Criativo:</strong> De ferramentas de automação a backends full-stack, construímos sistemas personalizados, ferramentas internas, SDKs e APIs para apoiar campanhas e plataformas digitais."><strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms.</p>
-                            <p data-en="<strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic." data-pt-br="<strong>Sistemas e Módulos para Roblox:</strong> Especializamo-nos em construir sistemas escaláveis e modulares em Luau, incluindo personalização de avatares, mecânicas de progressão e lógica multiplayer."><strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic.</p>
-                            <p data-en="<strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms." data-pt-br="<strong>Stack de Tecnologia:</strong> Unity 3D, Roblox Studio, SDKs de RA, desenvolvimento Android/iOS, Firebase, Node.js, Python, plataformas de VR."><strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms.</p>
-                        </div>
+                                                <div class="col-lg-6" data-en="">
+                                                        {% for para in site.data.en.about.paragraphs %}
+                                                            {% if forloop.index0 < 3 %}
+                                                                <p data-en="{{ para | escape }}" data-pt-br="{{ site.data['pt-br'].about.paragraphs[forloop.index0] | escape }}">{{ para }}</p>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                </div>
+                                                <div class="col-lg-6">
+                                                        {% for para in site.data.en.about.paragraphs %}
+                                                            {% if forloop.index0 >= 3 %}
+                                                                <p data-en="{{ para | escape }}" data-pt-br="{{ site.data['pt-br'].about.paragraphs[forloop.index0] | escape }}">{{ para }}</p>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                </div>
                         <div class="col-lg-8 col-lg-offset-2 text-center">
                             <a href="#contact" class="btn btn-lg btn-success page-scroll">
-                                <i class="fa fa-envelope"></i> <span data-en="Start a Project" data-pt-br="Iniciar um Projeto">Start a Project</span>
+                                <i class="fa fa-envelope"></i> <span data-en="{{ site.data.en.about.start_project }}" data-pt-br="{{ site.data['pt-br'].about.start_project }}">{{ site.data.en.about.start_project }}</span>
                             </a>
                         </div>
                     </div>
@@ -143,69 +162,68 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 data-en="{{ site.contact.title | default: "Let's Work Together" }}" data-pt-br="{{ site.data.pt-br.contact.title | default: site.contact.title }}">{{ site.contact.title | default: "Let's Work Together" }}</h2>
+                        <h2 data-en="{{ site.data.en.contact.title }}" data-pt-br="{{ site.data['pt-br'].contact.title }}">{{ site.data.en.contact.title }}</h2>
                         <hr class="star-primary">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                             <div class="text-center" style="margin-top: 40px;">
-                                <h3 data-en="Who We Work With" data-pt-br="Com quem trabalhamos">Who We Work With</h3>
+                                <h3 data-en="{{ site.data.en.contact.who_title }}" data-pt-br="{{ site.data['pt-br'].contact.who_title }}">{{ site.data.en.contact.who_title }}</h3>
                                 <ul class="text-left" style="max-width: 600px; margin: 0 auto;">
-                                    <li><strong data-en="Brands and agencies" data-pt-br="Marcas e agências">Brands and agencies</strong> <span data-en="seeking playful, interactive digital engagement" data-pt-br="buscar engajamento digital lúdico e interativo">seeking playful, interactive digital engagement</span></li>
-                                    <li><strong data-en="NGOs and educational institutions" data-pt-br="ONGs e instituições educacionais">NGOs and educational institutions</strong> <span data-en="looking to teach through games" data-pt-br="que procuram ensinar através de jogos">looking to teach through games</span></li>
-                                    <li><strong data-en="Cultural organizations" data-pt-br="Organizações culturais">Cultural organizations</strong> <span data-en="aiming to preserve and promote regional identity" data-pt-br="com o objetivo de preservar e promover a identidade regional">aiming to preserve and promote regional identity</span></li>
-                                    <li><strong data-en="Media and entertainment projects" data-pt-br="Projetos de mídia e entretenimento">Media and entertainment projects</strong> <span data-en="that demand strong technical and creative integration" data-pt-br="que exigem forte integração técnica e criativa">that demand strong technical and creative integration</span></li>
+                                    {% for item in site.data.en.contact.who %}
+                                    <li><strong data-en="{{ item.title }}" data-pt-br="{{ site.data['pt-br'].contact.who[forloop.index0].title }}">{{ item.title }}</strong> <span data-en="{{ item.desc }}" data-pt-br="{{ site.data['pt-br'].contact.who[forloop.index0].desc }}">{{ item.desc }}</span></li>
+                                    {% endfor %}
                                 </ul>
                                 <br>
-                                <p><strong data-en="Direct Email:" data-pt-br="Email direto:">Direct Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-                                <p data-en="Available for projects worldwide" data-pt-br="Disponível para projetos em todo o mundo">Available for projects worldwide</p>
+                                <p><strong data-en="{{ site.data.en.contact.direct_email }}" data-pt-br="{{ site.data['pt-br'].contact.direct_email }}">{{ site.data.en.contact.direct_email }}</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+                                <p data-en="{{ site.data.en.contact.available }}" data-pt-br="{{ site.data['pt-br'].contact.available }}">{{ site.data.en.contact.available }}</p>
                             </div>
-                            <p class="text-center" data-en="{{ site.contact.subtitle | default: 'Ready to build something amazing? Get in touch.' }}" data-pt-br="{{ site.data.pt-br.contact.subtitle | default: site.contact.subtitle }}">{{ site.contact.subtitle }}</p>
+                            <p class="text-center" data-en="{{ site.data.en.contact.subtitle }}" data-pt-br="{{ site.data['pt-br'].contact.subtitle }}">{{ site.data.en.contact.subtitle }}</p>
                         
                         <!-- Contact Form -->
                         <form name="sentMessage" id="contactForm" novalidate action="https://formspree.io/f/xwprkddy" method="POST">
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Name" id="name" name="name" required data-validation-required-message="Please enter your name." data-en-validation="Please enter your name." data-pt-br-validation="Por favor, insira seu nome." data-en-placeholder="Name" data-pt-br-placeholder="Nome">
+                                    <label data-en="{{ site.data.en.contact.form.label_name }}" data-pt-br="{{ site.data['pt-br'].contact.form.label_name }}">{{ site.data.en.contact.form.label_name }}</label>
+                                    <input type="text" class="form-control" placeholder="{{ site.data.en.contact.form.placeholder_name }}" id="name" name="name" required data-validation-required-message="{{ site.data.en.contact.form.validation_name }}" data-en-validation="{{ site.data.en.contact.form.validation_name }}" data-pt-br-validation="{{ site.data['pt-br'].contact.form.validation_name }}" data-en-placeholder="{{ site.data.en.contact.form.placeholder_name }}" data-pt-br-placeholder="{{ site.data['pt-br'].contact.form.placeholder_name }}">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Email Address</label>
-                                    <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required data-validation-required-message="Please enter your email address." data-en-validation="Please enter your email address." data-pt-br-validation="Por favor, insira seu endereço de email." data-en-placeholder="Email Address" data-pt-br-placeholder="Endereço de Email">
+                                    <label data-en="{{ site.data.en.contact.form.label_email }}" data-pt-br="{{ site.data['pt-br'].contact.form.label_email }}">{{ site.data.en.contact.form.label_email }}</label>
+                                    <input type="email" class="form-control" placeholder="{{ site.data.en.contact.form.placeholder_email }}" id="email" name="email" required data-validation-required-message="{{ site.data.en.contact.form.validation_email }}" data-en-validation="{{ site.data.en.contact.form.validation_email }}" data-pt-br-validation="{{ site.data['pt-br'].contact.form.validation_email }}" data-en-placeholder="{{ site.data.en.contact.form.placeholder_email }}" data-pt-br-placeholder="{{ site.data['pt-br'].contact.form.placeholder_email }}">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label data-en="Company/Organization" data-pt-br="Empresa/Organização">Company/Organization</label>
-                                    <input type="text" class="form-control" placeholder="Company/Organization" id="company" name="company" data-en-placeholder="Company/Organization" data-pt-br-placeholder="Empresa/Organização">
+                                    <label data-en="{{ site.data.en.contact.form.label_company }}" data-pt-br="{{ site.data['pt-br'].contact.form.label_company }}">{{ site.data.en.contact.form.label_company }}</label>
+                                    <input type="text" class="form-control" placeholder="{{ site.data.en.contact.form.placeholder_company }}" id="company" name="company" data-en-placeholder="{{ site.data.en.contact.form.placeholder_company }}" data-pt-br-placeholder="{{ site.data['pt-br'].contact.form.placeholder_company }}">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label data-en="Project Type" data-pt-br="Tipo de Projeto">Project Type</label>
+                                    <label data-en="{{ site.data.en.contact.form.label_project_type }}" data-pt-br="{{ site.data['pt-br'].contact.form.label_project_type }}">{{ site.data.en.contact.form.label_project_type }}</label>
                                     <select class="form-control" id="projectType" name="projectType">
-                                        <option value="" data-en="Select Project Type" data-pt-br="Selecione o Tipo de Projeto">Select Project Type</option>
-                                        <option value="roblox" data-en="Roblox Development" data-pt-br="Desenvolvimento Roblox">Roblox Development</option>
-                                        <option value="mobile" data-en="Mobile Games & Apps" data-pt-br="Jogos e Apps Mobile">Mobile Games & Apps</option>
-                                        <option value="ar" data-en="Augmented Reality" data-pt-br="Realidade Aumentada">Augmented Reality</option>
-                                        <option value="vr" data-en="Virtual Reality" data-pt-br="Realidade Virtual">Virtual Reality</option>
-                                        <option value="web" data-en="Web Development" data-pt-br="Desenvolvimento Web">Web Development</option>
-                                        <option value="phygital" data-en="Phygital Campaign" data-pt-br="Campanha Phygital">Phygital Campaign</option>
-                                        <option value="other" data-en="Other" data-pt-br="Outro">Other</option>
+                                        <option value="" data-en="{{ site.data.en.contact.form.option_select_project_type }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_select_project_type }}">{{ site.data.en.contact.form.option_select_project_type }}</option>
+                                        <option value="roblox" data-en="{{ site.data.en.contact.form.option_roblox }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_roblox }}">{{ site.data.en.contact.form.option_roblox }}</option>
+                                        <option value="mobile" data-en="{{ site.data.en.contact.form.option_mobile }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_mobile }}">{{ site.data.en.contact.form.option_mobile }}</option>
+                                        <option value="ar" data-en="{{ site.data.en.contact.form.option_ar }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_ar }}">{{ site.data.en.contact.form.option_ar }}</option>
+                                        <option value="vr" data-en="{{ site.data.en.contact.form.option_vr }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_vr }}">{{ site.data.en.contact.form.option_vr }}</option>
+                                        <option value="web" data-en="{{ site.data.en.contact.form.option_web }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_web }}">{{ site.data.en.contact.form.option_web }}</option>
+                                        <option value="phygital" data-en="{{ site.data.en.contact.form.option_phygital }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_phygital }}">{{ site.data.en.contact.form.option_phygital }}</option>
+                                        <option value="other" data-en="{{ site.data.en.contact.form.option_other }}" data-pt-br="{{ site.data['pt-br'].contact.form.option_other }}">{{ site.data.en.contact.form.option_other }}</option>
                                     </select>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label data-en="Message" data-pt-br="Mensagem">Message</label>
-                                    <textarea rows="5" class="form-control" placeholder="Tell us about your project..." id="message" name="message" required data-validation-required-message="Please enter a message." data-en-placeholder="Tell us about your project..." data-pt-br-placeholder="Conte-nos sobre o seu projeto..." data-en-validation="Please enter a message." data-pt-br-validation="Por favor, insira uma mensagem."></textarea>
+                                    <label data-en="{{ site.data.en.contact.form.label_message }}" data-pt-br="{{ site.data['pt-br'].contact.form.label_message }}">{{ site.data.en.contact.form.label_message }}</label>
+                                    <textarea rows="5" class="form-control" placeholder="{{ site.data.en.contact.form.placeholder_message }}" id="message" name="message" required data-validation-required-message="{{ site.data.en.contact.form.validation_message }}" data-en-placeholder="{{ site.data.en.contact.form.placeholder_message }}" data-pt-br-placeholder="{{ site.data['pt-br'].contact.form.placeholder_message }}" data-en-validation="{{ site.data.en.contact.form.validation_message }}" data-pt-br-validation="{{ site.data['pt-br'].contact.form.validation_message }}"></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -215,7 +233,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12 text-center">
-                                    <button type="submit" class="btn btn-success btn-lg" data-en="Send Message" data-pt-br="Enviar Mensagem">Send Message</button>
+                                    <button type="submit" class="btn btn-success btn-lg" data-en="{{ site.data.en.contact.form.send_button }}" data-pt-br="{{ site.data['pt-br'].contact.form.send_button }}">{{ site.data.en.contact.form.send_button }}</button>
                                 </div>
                             </div>
                         </form>
@@ -225,16 +243,16 @@
         </section>
 
         <!-- Footer -->
-        <footer class="text-center">
+    <footer class="text-center">
             <div class="footer-above">
                 <div class="container">
                     <div class="row">
                         <div class="footer-col col-md-4">
-                            <h3 data-en="Our Philosophy" data-pt-br="Nossa Filosofia">Our Philosophy</h3>
-                            <p data-en="At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire." data-pt-br="Na DANDAMPI, acreditamos que a interação é uma das formas mais poderosas de educar, engajar e inspirar.">At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire.</p>
+                            <h3 data-en="{{ site.data.en.footer.philosophy_title }}" data-pt-br="{{ site.data['pt-br'].footer.philosophy_title }}">{{ site.data.en.footer.philosophy_title }}</h3>
+                            <p data-en="{{ site.data.en.footer.philosophy_text }}" data-pt-br="{{ site.data['pt-br'].footer.philosophy_text }}">{{ site.data.en.footer.philosophy_text }}</p>
                         </div>
                         <div class="footer-col col-md-4">
-                            <h3 data-en="Connect With Us" data-pt-br="Conecte-se Conosco">Connect With Us</h3>
+                            <h3 data-en="{{ site.data.en.footer.connect_title }}" data-pt-br="{{ site.data['pt-br'].footer.connect_title }}">{{ site.data.en.footer.connect_title }}</h3>
                             <ul class="list-inline">
                                 {% if site.email %}
                                 <li>
@@ -260,8 +278,8 @@
                             </ul>
                         </div>
                         <div class="footer-col col-md-4">
-                            <h3 data-en="Technology" data-pt-br="Tecnologia">Technology</h3>
-                            <p data-en="We deliver projects that users want to return to, talk about, and remember through playful, purposeful design." data-pt-br="Entregamos projetos aos quais os usuários queiram voltar, falar e lembrar, por meio de design lúdico e com propósito.">We deliver projects that users want to return to, talk about, and remember through playful, purposeful design.</p>
+                            <h3 data-en="{{ site.data.en.footer.technology_title }}" data-pt-br="{{ site.data['pt-br'].footer.technology_title }}">{{ site.data.en.footer.technology_title }}</h3>
+                            <p data-en="{{ site.data.en.footer.technology_text }}" data-pt-br="{{ site.data['pt-br'].footer.technology_text }}">{{ site.data.en.footer.technology_text }}</p>
                         </div>
                     </div>
                 </div>
@@ -270,7 +288,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }} - <span data-en="Creative Technology Studio" data-pt-br="Estúdio de Tecnologia Criativa">Creative Technology Studio</span>
+                            Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }} - <span data-en="{{ site.data.en.footer.studio_tag }}" data-pt-br="{{ site.data['pt-br'].footer.studio_tag }}">{{ site.data.en.footer.studio_tag }}</span>
                         </div>
                     </div>
                 </div>
@@ -299,7 +317,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-lg-offset-2">
                                     <div class="modal-body">
-                                        <h2 class="text-center" data-en="{{ project.name }}" data-project-key="{{ project.name }}">{{ project.name }}</h2>
+                                        <h2 class="text-center" data-en="{{ site.data.en.projects[project.name].name | default: project.name }}" data-project-key="{{ project.name }}">{{ site.data.en.projects[project.name].name | default: project.name }}</h2>
                                         <hr class="star-primary">
                                         
                                         <!-- Project Media Carousel -->
@@ -342,11 +360,11 @@
                                                 {% if project.carousel.size > 1 %}
                                                     <a class="left carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="prev">
                                                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                                    <span class="sr-only" data-en="Previous" data-pt-br="Anterior">Previous</span>
+                                                    <span class="sr-only" data-en="{{ site.data.en.aria.previous }}" data-pt-br="{{ site.data['pt-br'].aria.previous }}">{{ site.data.en.aria.previous }}</span>
                                                 </a>
                                                 <a class="right carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="next">
                                                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                                    <span class="sr-only" data-en="Next" data-pt-br="Próximo">Next</span>
+                                                    <span class="sr-only" data-en="{{ site.data.en.aria.next }}" data-pt-br="{{ site.data['pt-br'].aria.next }}">{{ site.data.en.aria.next }}</span>
                                                 </a>
                                                 {% endif %}
                                             </div>
@@ -361,9 +379,9 @@
                                         {% endif %}
                                         
                                         <div class="project-details">
-                                            <p class="text-center" data-en="{{ project.description }}" data-project-key="{{ project.name }}.description">{{ project.description }}</p>
+                                            <p class="text-center" data-en="{{ site.data.en.projects[project.name].description | default: project.description }}" data-project-key="{{ project.name }}.description">{{ site.data.en.projects[project.name].description | default: project.description }}</p>
                                             <div class="text-center project-categories">
-                                                <strong data-en="Categories:" data-pt-br="Categorias:">Categories:</strong>
+                                                <strong data-en="{{ site.data.en.modal.categories }}" data-pt-br="{{ site.data['pt-br'].modal.categories }}">{{ site.data.en.modal.categories }}</strong>
                                                 {% if project.category %}
                                                     {% if project.category.size > 1 %}
                                                         <!-- Multiple categories as array -->
@@ -410,11 +428,11 @@
                                                 </a>
                                                 {% if project.instagram %}
                                                 <a href="{{ project.instagram }}" class="btn btn-instagram btn-lg" target="_blank">
-                                                    <i class="fa fa-instagram"></i> <span data-en="Instagram" data-pt-br="Instagram">Instagram</span>
+                                                    <i class="fa fa-instagram"></i> <span data-en="{{ site.data.en.modal.instagram }}" data-pt-br="{{ site.data['pt-br'].modal.instagram }}">{{ site.data.en.modal.instagram }}</span>
                                                 </a>
                                                 {% endif %}
                                                 <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">
-                                                    <i class="fa fa-times"></i> <span data-en="Close" data-pt-br="Fechar">Close</span>
+                                                    <i class="fa fa-times"></i> <span data-en="{{ site.data.en.modal.close }}" data-pt-br="{{ site.data['pt-br'].modal.close }}">{{ site.data.en.modal.close }}</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -429,8 +447,15 @@
 
         <!-- Custom JavaScript -->
         <script>
-        // Portuguese translations for projects (generated from _data/projects_pt_br.yml)
-        const projectTranslations = {{ site.data.projects_pt_br.translations | jsonify }};
+        // Expose Portuguese project translations from window.I18N (populated above)
+        (function(){
+            try {
+                window.projectTranslations = (window.I18N && window.I18N['pt-br'] && window.I18N['pt-br'].projects) ? window.I18N['pt-br'].projects : {};
+            } catch (e) {
+                console.error('Failed to initialize projectTranslations', e);
+                window.projectTranslations = {};
+            }
+        })();
 
         $(document).ready(function() {
             // Custom active-nav handler: compute offsets after load and update active link deterministically
@@ -613,15 +638,23 @@
                 currentLang = lang;
                 localStorage.setItem('preferred-language', lang);
 
+                // Helper to decode HTML entities (e.g. &lt;strong&gt;)
+                function decodeEntities(encodedStr) {
+                    var txt = document.createElement('textarea');
+                    txt.innerHTML = encodedStr;
+                    return txt.value;
+                }
+
                 // Update elements with data attributes (regular UI elements)
                 document.querySelectorAll('[data-en][data-pt-br]').forEach(el => {
-                    const text = el.getAttribute('data-' + lang);
+                    var text = el.getAttribute('data-' + lang);
                     if (text) {
-                        // If the localized string contains HTML tags, set innerHTML so tags like <strong> are rendered.
-                        if (text.indexOf('<') !== -1 || text.indexOf('&lt;') !== -1) {
-                            el.innerHTML = text;
+                        // If the localized string contains encoded HTML entities, decode them first.
+                        var decoded = (text.indexOf('&lt;') !== -1 || text.indexOf('&gt;') !== -1 || text.indexOf('&amp;') !== -1) ? decodeEntities(text) : text;
+                        if (decoded.indexOf('<') !== -1) {
+                            el.innerHTML = decoded;
                         } else {
-                            el.textContent = text;
+                            el.textContent = decoded;
                         }
                     }
                 });
@@ -650,21 +683,27 @@
                         if (projectKey.endsWith('.description')) {
                             const baseKey = projectKey.replace('.description', '');
                             if (projectTranslations[baseKey] && projectTranslations[baseKey].description) {
-                                const desc = projectTranslations[baseKey].description;
-                                if (desc && (desc.indexOf('<') !== -1 || desc.indexOf('&lt;') !== -1)) {
-                                    el.innerHTML = desc;
-                                } else if (desc) {
-                                    el.textContent = desc;
+                                var desc = projectTranslations[baseKey].description;
+                                if (desc) {
+                                    var decodedDesc = (desc.indexOf('&lt;') !== -1 || desc.indexOf('&gt;') !== -1 || desc.indexOf('&amp;') !== -1) ? decodeEntities(desc) : desc;
+                                    if (decodedDesc.indexOf('<') !== -1) {
+                                        el.innerHTML = decodedDesc;
+                                    } else {
+                                        el.textContent = decodedDesc;
+                                    }
                                 }
                             }
                         } else {
                             // It's a title/name
                             if (projectTranslations[projectKey] && projectTranslations[projectKey].name) {
-                                const name = projectTranslations[projectKey].name;
-                                if (name && (name.indexOf('<') !== -1 || name.indexOf('&lt;') !== -1)) {
-                                    el.innerHTML = name;
-                                } else if (name) {
-                                    el.textContent = name;
+                                var name = projectTranslations[projectKey].name;
+                                if (name) {
+                                    var decodedName = (name.indexOf('&lt;') !== -1 || name.indexOf('&gt;') !== -1 || name.indexOf('&amp;') !== -1) ? decodeEntities(name) : name;
+                                    if (decodedName.indexOf('<') !== -1) {
+                                        el.innerHTML = decodedName;
+                                    } else {
+                                        el.textContent = decodedName;
+                                    }
                                 }
                             }
                         }
@@ -684,12 +723,13 @@
                 document.querySelectorAll('button span[data-en][data-pt-br], a span[data-en][data-pt-br], span[data-en][data-pt-br]').forEach(el => {
                     // avoid overwriting elements that also have data-project-key
                     if (el.hasAttribute('data-project-key')) return;
-                    const text = el.getAttribute('data-' + lang);
+                    var text = el.getAttribute('data-' + lang);
                     if (text) {
-                        if (text.indexOf('<') !== -1 || text.indexOf('&lt;') !== -1) {
-                            el.innerHTML = text;
+                        var decoded = (text.indexOf('&lt;') !== -1 || text.indexOf('&gt;') !== -1 || text.indexOf('&amp;') !== -1) ? decodeEntities(text) : text;
+                        if (decoded.indexOf('<') !== -1) {
+                            el.innerHTML = decoded;
                         } else {
-                            el.textContent = text;
+                            el.textContent = decoded;
                         }
                     }
                 });

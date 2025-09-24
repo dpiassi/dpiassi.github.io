@@ -9,10 +9,10 @@
     </a>
   {% endif %}
   
-  <a href="https://linkedin.com/in/dpiassi" target="_blank" rel="noopener noreferrer">
+  <a href="https://linkedin.com/in/{{ site.linkedin_username | default: 'dpiassi' }}" target="_blank" rel="noopener noreferrer">
     <svg class="svg-icon grey">
       <use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use>
     </svg>
-  <span class="username" data-en="dpiassi" data-pt-br="dpiassi">dpiassi</span>
+  <span class="username" data-en="{{ site.linkedin_username | default: 'dpiassi' }}" data-pt-br="{{ site.linkedin_username | default: 'dpiassi' }}">{{ site.linkedin_username | default: 'dpiassi' }}</span>
   </a>
 </div>

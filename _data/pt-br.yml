@@ -9,7 +9,14 @@ header:
 
 about:
   title: "Sobre"
-  description: "A DANDAMPI é um estúdio de tecnologia criativa e software house fundada pelo desenvolvedor e empreendedor Daniel Piazzi. Com mais de uma década de experiência em sistemas interativos, jogos, realidade aumentada e plataformas móveis, a DANDAMPI entrega produtos digitais personalizados que combinam narrativa, aprendizado, entretenimento e funcionalidade."
+  paragraphs:
+    - "<strong>Experiências Digitais:</strong> Criamos mundos 3D imersivos, jogos multiplayer e simulações interativas em plataformas como Roblox, Unity e Godot. Ideais para iniciativas educacionais, campanhas de marca e narrativas institucionais."
+    - "<strong>Campanhas Phygital:</strong> Conectamos produtos do mundo real a experiências digitais por meio de QR codes, realidade aumentada e mecânicas de recompensa."
+    - "<strong>Jogos e Apps Mobile:</strong> Projetamos e desenvolvemos aplicações móveis para Android e iOS, incluindo jogos educacionais, guias culturais e experiências com AR."
+    - "<strong>Desenvolvimento de Software Criativo:</strong> De ferramentas de automação a backends full-stack, construímos sistemas personalizados, ferramentas internas, SDKs e APIs para suportar campanhas e plataformas digitais."
+    - "<strong>Sistemas e Módulos para Roblox:</strong> Especializamo-nos em construir sistemas modulares escaláveis em Luau, incluindo customização de avatar, mecânicas de progressão e lógica multiplayer."
+    - "<strong>Stack Tecnológico:</strong> Unity 3D, Roblox Studio, SDKs de AR, desenvolvimento Android/iOS, Firebase, Node.js, Python, plataformas de VR."
+  start_project: "Iniciar um Projeto"
 
 portfolio:
   title: "Portfólio"
@@ -34,8 +41,51 @@ contact:
   phone: "Telefone"
   message: "Mensagem"
   send: "Enviar Mensagem"
+  who_title: "Com quem trabalhamos"
+  who:
+    - title: "Marcas e agências"
+      desc: "buscar engajamento digital lúdico e interativo"
+    - title: "ONGs e instituições educacionais"
+      desc: "que procuram ensinar através de jogos"
+    - title: "Organizações culturais"
+      desc: "com o objetivo de preservar e promover a identidade regional"
+    - title: "Projetos de mídia e entretenimento"
+      desc: "que exigem forte integração técnica e criativa"
+  direct_email: "Email direto:"
+  available: "Disponível para projetos em todo o mundo"
+  form:
+    label_name: "Nome"
+    placeholder_name: "Nome"
+    validation_name: "Por favor, insira seu nome."
+    label_email: "Endereço de Email"
+    placeholder_email: "Endereço de Email"
+    validation_email: "Por favor, insira seu endereço de email."
+    label_company: "Empresa/Organização"
+    placeholder_company: "Empresa/Organização"
+    label_project_type: "Tipo de Projeto"
+    option_select_project_type: "Selecione o Tipo de Projeto"
+    option_roblox: "Desenvolvimento Roblox"
+    option_mobile: "Jogos e Apps Mobile"
+    option_ar: "Realidade Aumentada"
+    option_vr: "Realidade Virtual"
+    option_web: "Desenvolvimento Web"
+    option_phygital: "Campanha Phygital"
+    option_other: "Outro"
+    label_message: "Mensagem"
+    placeholder_message: "Conte-nos sobre o seu projeto..."
+    validation_message: "Por favor, insira uma mensagem."
+    send_button: "Enviar Mensagem"
 
 footer:
+  copyright: "Direitos Reservados"
+  philosophy_title: "Nossa Filosofia"
+  philosophy_text: "Na DANDAMPI, acreditamos que a interação é uma das formas mais poderosas de educar, engajar e inspirar."
+  connect_title: "Conecte-se Conosco"
+  technology_title: "Tecnologia"
+  technology_text: "Entregamos projetos aos quais os usuários queiram voltar, falar e lembrar, por meio de design lúdico e com propósito."
+  studio_tag: "Estúdio de Tecnologia Criativa"
+
+site:
   copyright: "Direitos Reservados"
 
 language:
@@ -49,3 +99,79 @@ buttons:
   demo: "Demo"
   download: "Baixar"
   visit: "Visitar"
+
+modal:
+  categories: "Categorias:"
+  play: "Jogar Agora"
+  download: "Baixar"
+  view_project: "Ver Projeto"
+  instagram: "Instagram"
+  close: "Fechar"
+
+aria:
+  toggle_navigation: "Alternar navegação"
+  profile_picture: "Foto de Perfil"
+  previous: "Anterior"
+  next: "Próximo"
+
+js:
+  sending: "<strong>Enviando...</strong>"
+  honeypot_title_en: "<strong>Your message has been sent.</strong>"
+  honeypot_body_en: " We'll get back to you soon."
+  honeypot_title_pt: "<strong>Obrigado pela sua mensagem!</strong>"
+  honeypot_body_pt: " Entraremos em contato em breve."
+  file_protocol_error_en: "<strong>Error: open this site via a local server (http) to test the form).</strong>"
+  file_protocol_error_pt: "<strong>Erro: Abra este site via um servidor (http) para testar o formulário.</strong>"
+  success_title_en: "<strong>Your message has been sent.</strong>"
+  success_body_en: " We'll get back to you soon."
+  success_title_pt: "<strong>Obrigado pela sua mensagem!</strong>"
+  success_body_pt: " Entraremos em contato em breve."
+  fail_title_en: "<strong>Sorry, it looks like something went wrong.</strong>"
+  fail_body_en: " Please try again later."
+  fail_title_pt: "<strong>Desculpe, algo deu errado.</strong>"
+  fail_body_pt: " Tente novamente mais tarde."
+
+projects:
+  "Surpresa World":
+    name: "Mundo Surpresa"
+    description: "Jogo educativo do Roblox criado em parceria com a Nestlé, explorando a produção de chocolate por meio de missões de sustentabilidade, com integração de AR e QR."
+
+  "LOUD League: Soccer Legends":
+    name: "Liga LOUD: Lendas do Futebol"
+    description: "Jogo multiplayer competitivo de futebol da principal marca de esports da América Latina, com avatares personalizados e progressão em ranking."
+
+  "Sportv Land":
+    name: "Sportv Land"
+    description: "Mundo interativo para a maior rede de TV esportiva do Brasil, repleto de minijogos temáticos e eventos sazonais."
+
+  "Soapbox: Race Mayhem":
+    name: "Soapbox: Race Mayhem"
+    description: "Jogo de corrida multiplayer em descidas insanas, com carrinhos de rolimã totalmente personalizáveis, colisões baseadas em física e pistas cheias de obstáculos vibrantes."
+
+  "Hyperlight Wings":
+    name: "Hyperlight Wings"
+    description: "Simulador de voo no Roblox desenvolvido durante o Roblox Fall Accelerator 2021, com física avançada e mecânicas multiplayer."
+
+  "InPeace Metaverse":
+    name: "InPeace Metaverso"
+    description: "Ecossistema gamificado para educação e exploração baseadas na fé, disponível em Android e iOS, com espaços comunitários e missões narrativas."
+
+  "Letters and Sounds of Nature":
+    name: "Letras e Sons da Natureza"
+    description: "Jogo educacional de fonética para crianças, que combina temas da natureza com desenvolvimento da alfabetização em uma jogabilidade interativa no celular."
+
+  "Culinária Capixaba":
+    name: "Culinária Capixaba"
+    description: "Aplicativo de realidade aumentada que ensina a culinária tradicional do Espírito Santo por meio de histórias culturais com geolocalização e rastreamento de objetos."
+
+  "Revolta de Queimados":
+    name: "Revolta de Queimados"
+    description: "Experiência histórica imersiva que mistura jogabilidade mobile com AR para narrar uma importante rebelião da história do Brasil."
+
+  "Boneco Neco: Adventures on Capixaba's Land":
+    name: "Boneco Neco: Aventuras na Terra Capixaba"
+    description: "Jogo para web e celular que apresenta a cultura regional às crianças, por meio de exploração e missões ambientadas em paisagens reais do Brasil."
+
+  "Coloring Capixaba's Culture":
+    name: "Colorindo a Cultura Capixaba"
+    description: "Aplicativo interativo de colorir com personagens e artefatos tradicionais do folclore e da culinária capixaba."
