@@ -1,5 +1,4 @@
-- name: "Surpresa World"
-  description: "Educational Roblox game created in partnership with Nestlé, exploring chocolate production through sustainability-themed missions with AR and QR integration."
+- key: "surpresa-world"
   image: "img/portfolio/surpresa-world.webp"
   category: ["roblox", "educational", "ar", "multiplayer"]
   ctas:
@@ -19,8 +18,7 @@
     - type: "image"
       src: "img/portfolio/surpresa-world-4.webp"
 
-- name: "LOUD League: Soccer Legends"
-  description: "Competitive multiplayer soccer game for Latin America's leading esports brand, featuring custom avatars and leaderboard progression."
+- key: "loud-league"
   image: "img/portfolio/loud-league.webp"
   category: ["roblox", "sports", "multiplayer"]
   ctas:
@@ -56,8 +54,7 @@
     - type: "youtube"
       id: "NNN6T0RBnog"
 
-- name: "Sportv Land"
-  description: "Interactive world for Brazil's largest sports television network, filled with themed minigames and seasonal events."
+- key: "sportv-land"
   image: "img/portfolio/sportv-land.webp"
   category: ["roblox", "sports", "multiplayer"]
   ctas:
@@ -67,8 +64,7 @@
     - type: "youtube"
       id: "RzC9dOpuoEg"
 
-- name: "Soapbox: Race Mayhem"
-  description: "Multiplayer downhill racing game featuring fully customizable soapbox cars, physics-based collisions, and chaotic gameplay across vibrant obstacle tracks."
+- key: "soapbox"
   image: "img/portfolio/soapbox.webp"
   category: ["roblox", "multiplayer", "vehicles"]
   ctas:
@@ -78,8 +74,7 @@
     - type: "image"
       src: "img/portfolio/soapbox-1.webp"
 
-- name: "Hyperlight Wings"
-  description: "Roblox flight simulation developed during Roblox Fall Accelerator 2021, featuring advanced physics and multiplayer mechanics."
+- key: "hyperlight-wings"
   image: "img/portfolio/hyperlight-wings.webp"
   category: ["roblox", "multiplayer", "vehicles"]
   ctas:
@@ -93,8 +88,7 @@
     - type: "image"
       src: "img/portfolio/hyperlight-wings-2.webp"
 
-- name: "InPeace Metaverse"
-  description: "Gamified ecosystem for faith-based education and exploration, available on Android and iOS with community spaces and narrative missions."
+- key: "inpeace"
   image: "img/portfolio/inpeace.png"
   category: ["mobile", "multiplayer"]
   ctas:
@@ -104,8 +98,7 @@
     - type: "youtube"
       id: "xnJz0NBn6rg"
 
-- name: "Letters and Sounds of Nature"
-  description: "Phonics-based educational game for young learners, combining nature themes with literacy development through interactive mobile gameplay."
+- key: "letters-sounds"
   image: "img/portfolio/letters-sounds.png"
   instagram: "https://www.instagram.com/letrasesons_/"
   category: ["mobile", "educational", "children"]
@@ -113,8 +106,7 @@
     - type: "play"
       url: "https://onelink.to/254pgk"
 
-- name: "Culinária Capixaba"
-  description: "Augmented reality application teaching traditional Brazilian cuisine through cultural storytelling with geolocation and object tracking."
+- key: "culinaria-capixaba"
   image: "img/portfolio/culinaria-ar.png"
   instagram: "https://www.instagram.com/capixaba.culinaria/"
   category: ["ar", "cultural", "educational", "mobile"]
@@ -122,8 +114,7 @@
     - type: "download"
       url: "https://play.google.com/store/apps/details?id=com.Realink.Persona.CulinariaCapixaba"
 
-- name: "Revolta de Queimados"
-  description: "Immersive historical experience blending mobile gameplay with AR to narrate an important local rebellion in Brazilian history."
+- key: "revolta-queimados"
   image: "img/portfolio/revolta-queimados.png"
   instagram: "https://www.instagram.com/revolta.queimados/"
   category: ["ar", "educational", "mobile"]
@@ -131,8 +122,7 @@
     - type: "download"
       url: "https://play.google.com/store/apps/details?id=com.Realink.Persona.RevoltaDeQueimados"
 
-- name: "Boneco Neco: Adventures on Capixaba's Land"
-  description: "Web and mobile game introducing children to regional culture through exploration and quests set in real Brazilian landscapes."
+- key: "boneco-neco"
   image: "img/portfolio/boneco-neco.png"
   category: ["web", "mobile", "cultural", "children"]
   ctas:
@@ -142,8 +132,7 @@
     - type: "youtube"
       id: "yd1TM-PTGBI"
 
-- name: "Coloring Capixaba's Culture"
-  description: "Interactive coloring book app featuring traditional characters and artifacts from local folklore and culinary culture."
+- key: "coloring"
   image: "img/portfolio/coloring.png"
   category: ["mobile", "cultural", "children"]
   ctas:

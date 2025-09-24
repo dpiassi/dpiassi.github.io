@@ -13,7 +13,7 @@ about:
     - "<strong>Experiências Digitais:</strong> Criamos mundos 3D imersivos, jogos multiplayer e simulações interativas em plataformas como Roblox, Unity e Godot. Ideais para iniciativas educacionais, campanhas de marca e narrativas institucionais."
     - "<strong>Campanhas Phygital:</strong> Conectamos produtos do mundo real a experiências digitais por meio de QR codes, realidade aumentada e mecânicas de recompensa."
     - "<strong>Jogos e Apps Mobile:</strong> Projetamos e desenvolvemos aplicações móveis para Android e iOS, incluindo jogos educacionais, guias culturais e experiências com AR."
-    - "<strong>Desenvolvimento de Software Criativo:</strong> De ferramentas de automação a backends full-stack, construímos sistemas personalizados, ferramentas internas, SDKs e APIs para suportar campanhas e plataformas digitais."
+    - "<strong>Desenvolvimento de Software Criativo:</strong> De ferramentas de automação a sistemas full-stack, construímos soluções personalizadas, ferramentas internas, SDKs e APIs para suportar campanhas e plataformas digitais."
     - "<strong>Sistemas e Módulos para Roblox:</strong> Especializamo-nos em construir sistemas modulares escaláveis em Luau, incluindo customização de avatar, mecânicas de progressão e lógica multiplayer."
     - "<strong>Stack Tecnológico:</strong> Unity 3D, Roblox Studio, SDKs de AR, desenvolvimento Android/iOS, Firebase, Node.js, Python, plataformas de VR."
   start_project: "Iniciar um Projeto"
@@ -117,62 +117,55 @@ aria:
 
 js:
   sending: "<strong>Enviando...</strong>"
-  honeypot_title_en: "<strong>Your message has been sent.</strong>"
-  honeypot_body_en: " We'll get back to you soon."
-  honeypot_title_pt: "<strong>Obrigado pela sua mensagem!</strong>"
-  honeypot_body_pt: " Entraremos em contato em breve."
-  file_protocol_error_en: "<strong>Error: open this site via a local server (http) to test the form).</strong>"
-  file_protocol_error_pt: "<strong>Erro: Abra este site via um servidor (http) para testar o formulário.</strong>"
-  success_title_en: "<strong>Your message has been sent.</strong>"
-  success_body_en: " We'll get back to you soon."
-  success_title_pt: "<strong>Obrigado pela sua mensagem!</strong>"
-  success_body_pt: " Entraremos em contato em breve."
-  fail_title_en: "<strong>Sorry, it looks like something went wrong.</strong>"
-  fail_body_en: " Please try again later."
-  fail_title_pt: "<strong>Desculpe, algo deu errado.</strong>"
-  fail_body_pt: " Tente novamente mais tarde."
+  honeypot_title: "<strong>Obrigado pela sua mensagem!</strong>"
+  honeypot_body: " Entraremos em contato em breve."
+  file_protocol_error: "<strong>Erro: Abra este site via um servidor (http) para testar o formulário.</strong>"
+  success_title: "<strong>Obrigado pela sua mensagem!</strong>"
+  success_body: " Entraremos em contato em breve."
+  fail_title: "<strong>Desculpe, algo deu errado.</strong>"
+  fail_body: " Tente novamente mais tarde."
 
 projects:
-  "Surpresa World":
+  "surpresa-world":
     name: "Mundo Surpresa"
     description: "Jogo educativo do Roblox criado em parceria com a Nestlé, explorando a produção de chocolate por meio de missões de sustentabilidade, com integração de AR e QR."
 
-  "LOUD League: Soccer Legends":
+  "loud-league":
     name: "Liga LOUD: Lendas do Futebol"
     description: "Jogo multiplayer competitivo de futebol da principal marca de esports da América Latina, com avatares personalizados e progressão em ranking."
 
-  "Sportv Land":
+  "sportv-land":
     name: "Sportv Land"
     description: "Mundo interativo para a maior rede de TV esportiva do Brasil, repleto de minijogos temáticos e eventos sazonais."
 
-  "Soapbox: Race Mayhem":
+  "soapbox":
     name: "Soapbox: Race Mayhem"
     description: "Jogo de corrida multiplayer em descidas insanas, com carrinhos de rolimã totalmente personalizáveis, colisões baseadas em física e pistas cheias de obstáculos vibrantes."
 
-  "Hyperlight Wings":
+  "hyperlight-wings":
     name: "Hyperlight Wings"
     description: "Simulador de voo no Roblox desenvolvido durante o Roblox Fall Accelerator 2021, com física avançada e mecânicas multiplayer."
 
-  "InPeace Metaverse":
+  "inpeace":
     name: "InPeace Metaverso"
     description: "Ecossistema gamificado para educação e exploração baseadas na fé, disponível em Android e iOS, com espaços comunitários e missões narrativas."
 
-  "Letters and Sounds of Nature":
+  "letters-sounds":
     name: "Letras e Sons da Natureza"
     description: "Jogo educacional de fonética para crianças, que combina temas da natureza com desenvolvimento da alfabetização em uma jogabilidade interativa no celular."
 
-  "Culinária Capixaba":
+  "culinaria-capixaba":
     name: "Culinária Capixaba"
     description: "Aplicativo de realidade aumentada que ensina a culinária tradicional do Espírito Santo por meio de histórias culturais com geolocalização e rastreamento de objetos."
 
-  "Revolta de Queimados":
+  "revolta-queimados":
     name: "Revolta de Queimados"
     description: "Experiência histórica imersiva que mistura jogabilidade mobile com AR para narrar uma importante rebelião da história do Brasil."
 
-  "Boneco Neco: Adventures on Capixaba's Land":
+  "boneco-neco":
     name: "Boneco Neco: Aventuras na Terra Capixaba"
     description: "Jogo para web e celular que apresenta a cultura regional às crianças, por meio de exploração e missões ambientadas em paisagens reais do Brasil."
 
-  "Coloring Capixaba's Culture":
+  "coloring":
     name: "Colorindo a Cultura Capixaba"
     description: "Aplicativo interativo de colorir com personagens e artefatos tradicionais do folclore e da culinária capixaba."

@@ -113,10 +113,10 @@
                                         </div>
                                     </div>
                                     <img src="{{ project.image | prepend: '/' }}" 
-                                         onerror="this.src='https://via.placeholder.com/300x300/003366/FFFFFF?text={{ project.name | url_encode }}'"
-                                         class="portfolio-image" alt="{{ project.name }}">
+                                         onerror="this.src='https://via.placeholder.com/300x300/003366/FFFFFF?text={{ site.data.en.projects[project.key].name | url_encode }}'"
+                                         class="portfolio-image" alt="{{ site.data.en.projects[project.key].name }}">
                                 </div>
-                                <h4 class="portfolio-title" data-en="{{ site.data.en.projects[project.name].name | default: project.name }}" data-project-key="{{ project.name }}">{{ site.data.en.projects[project.name].name | default: project.name }}</h4>
+                                <h4 class="portfolio-title" data-en="{{ site.data.en.projects[project.key].name }}" data-project-key="{{ project.key }}">{{ site.data.en.projects[project.key].name }}</h4>
                             </a>
                         </div>
                     {% endfor %}
@@ -317,7 +317,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-lg-offset-2">
                                     <div class="modal-body">
-                                        <h2 class="text-center" data-en="{{ site.data.en.projects[project.name].name | default: project.name }}" data-project-key="{{ project.name }}">{{ site.data.en.projects[project.name].name | default: project.name }}</h2>
+                                        <h2 class="text-center" data-en="{{ site.data.en.projects[project.key].name }}" data-project-key="{{ project.key }}">{{ site.data.en.projects[project.key].name }}</h2>
                                         <hr class="star-primary">
                                         
                                         <!-- Project Media Carousel -->
@@ -379,7 +379,7 @@
                                         {% endif %}
                                         
                                         <div class="project-details">
-                                            <p class="text-center" data-en="{{ site.data.en.projects[project.name].description | default: project.description }}" data-project-key="{{ project.name }}.description">{{ site.data.en.projects[project.name].description | default: project.description }}</p>
+                                            <p class="text-center" data-en="{{ site.data.en.projects[project.key].description }}" data-project-key="{{ project.key }}.description">{{ site.data.en.projects[project.key].description }}</p>
                                             <div class="text-center project-categories">
                                                 <strong data-en="{{ site.data.en.modal.categories }}" data-pt-br="{{ site.data['pt-br'].modal.categories }}">{{ site.data.en.modal.categories }}</strong>
                                                 {% if project.category %}
@@ -622,7 +622,7 @@
             });
 
             // Language Detection and Switching
-            let currentLang = 'en';
+            window.currentLang = 'en';
             
             // Detect user's preferred language
             function detectLanguage() {
@@ -641,7 +641,7 @@
 
             // Switch language function
             window.switchLanguage = function(lang) {
-                currentLang = lang;
+                window.currentLang = lang;
                 localStorage.setItem('preferred-language', lang);
 
                 // Helper to decode HTML entities (e.g. &lt;strong&gt;)
