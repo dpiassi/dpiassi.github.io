@@ -3,8 +3,19 @@ title: dandampi
 email: hello@dandampi.me
 description: >- # this means to ignore newlines until "baseurl:"
   Creative technology studio and software house. Code, Culture & Creativity. Connected.
+description_pt_br: >-
+  Estúdio de tecnologia criativa e software house. Código, Cultura & Criatividade. Conectados.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dandampi.me" # the base hostname & protocol for your site
+
+# Languages for switcher
+languages: 
+  - code: "en"
+    name: "English"
+    default: true
+  - code: "pt-br" 
+    name: "Português (BR)"
+    default: false
 
 # Build settings
 markdown: kramdown
@@ -22,10 +33,12 @@ owner: "DANDAMPI DESENVOLVIMENTO DE SOFTWARE LTDA"
 header:
   title: "DANDAMPI"
   subtitle: "Code, Culture & Creativity. Connected."
+  subtitle_pt_br: "Código, Cultura & Criatividade. Conectados."
   avatar: "img/profile.svg"
 
 # About section
 about: "DANDAMPI is a creative technology studio and software house founded by developer and entrepreneur Daniel Piazzi. With more than a decade of experience in interactive systems, games, augmented reality, and mobile platforms, DANDAMPI delivers custom digital products that blend storytelling, learning, entertainment, and functionality."
+about_pt_br: "A DANDAMPI é um estúdio de tecnologia criativa e software house fundada pelo desenvolvedor e empreendedor Daniel Piazzi. Com mais de uma década de experiência em sistemas interativos, jogos, realidade aumentada e plataformas móveis, a DANDAMPI entrega produtos digitais personalizados que combinam narrativa, aprendizado, entretenimento e funcionalidade."
 
 # Social usernames
 # github_username: dpiassi
@@ -36,6 +49,8 @@ twitter_username: ""
 contact:
   title: "Let's Work Together"
   subtitle: "Ready to create something amazing? Get in touch and let's discuss your project."
+  title_pt_br: "Vamos Trabalhar Juntos"
+  subtitle_pt_br: "Pronto para criar algo incrível? Entre em contato e vamos discutir seu projeto."
 
 # Color scheme (optional)
 color:

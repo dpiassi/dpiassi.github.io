@@ -1,0 +1,51 @@
+nav:
+  portfolio: "Portfólio"
+  about: "Sobre"
+  contact: "Contato"
+
+header:
+  title: "DANDAMPI"
+  subtitle: "Código, Cultura & Criatividade. Conectados."
+
+about:
+  title: "Sobre"
+  description: "A DANDAMPI é um estúdio de tecnologia criativa e software house fundada pelo desenvolvedor e empreendedor Daniel Piazzi. Com mais de uma década de experiência em sistemas interativos, jogos, realidade aumentada e plataformas móveis, a DANDAMPI entrega produtos digitais personalizados que combinam narrativa, aprendizado, entretenimento e funcionalidade."
+
+portfolio:
+  title: "Portfólio"
+  filter:
+    all: "Todos os Projetos"
+    roblox: "Roblox"
+    mobile: "Mobile"
+    ar: "RA"
+    web: "Web"
+    educational: "Educacional"
+    cultural: "Cultural"
+    children: "Infantil"
+    sports: "Esportes"
+    vehicles: "Veículos"
+    multiplayer: "Multiplayer"
+
+contact:
+  title: "Vamos Trabalhar Juntos"
+  subtitle: "Pronto para criar algo incrível? Entre em contato e vamos discutir seu projeto."
+  name: "Nome"
+  email: "Email"
+  phone: "Telefone"
+  message: "Mensagem"
+  send: "Enviar Mensagem"
+
+footer:
+  copyright: "Direitos Reservados"
+
+language:
+  select: "Idioma"
+  en: "English"
+  pt-br: "Português (BR)"
+
+buttons:
+  close: "Fechar"
+  play: "Jogar"
+  demo: "Demo"
+  download: "Baixar"
+  visit: "Visitar"

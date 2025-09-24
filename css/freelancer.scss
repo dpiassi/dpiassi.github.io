@@ -84,6 +84,19 @@ header {
                 color: $primary;
             }
         }
+
+        // Active nav item styling: ensure a clear highlighted background and readable text
+        > li.active > a,
+        > li > a.active {
+            background-color: white;
+            color: $primary;
+        }
+
+        > li.active > a:hover,
+        > li > a.active:hover {
+            color: $primary;
+            background-color: white;
+        }
     }
     
     &.affix {
@@ -422,17 +435,24 @@ footer {
 
 // Social buttons
 .btn-social {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: 50px;
     width: 50px;
     border: 2px solid white;
-    border-radius: 100%;
-    text-align: center;
+    border-radius: 50%;
     font-size: 20px;
-    line-height: 45px;
     color: white;
     background-color: transparent;
-    
+    vertical-align: middle;
+
+    // Ensure the inner icon doesn't shift baseline
+    i, svg {
+        display: inline-block;
+        line-height: 1;
+    }
+
     &:hover, &:focus, &:active {
         color: $secondary;
         background-color: white;

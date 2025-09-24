@@ -1,7 +1,10 @@
+            // form submission handled
 <!DOCTYPE html>
 <html>
     {% include head.html %}
     <body id="page-top" class="index">
+        <!-- Include the language switcher -->
+        {% include language-switcher.html %}
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -9,7 +12,7 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only" data-en="Toggle navigation" data-pt-br="Alternar navegação">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -24,33 +27,31 @@
                             <a href="#page-top"></a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#portfolio">Portfolio</a>
+                            <a href="#portfolio" data-en="Portfolio" data-pt-br="Portfólio">Portfolio</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#about">About</a>
+                            <a href="#about" data-en="About" data-pt-br="Sobre">About</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#contact">Contact</a>
+                            <a href="#contact" data-en="Contact" data-pt-br="Contato">Contact</a>
                         </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container-fluid -->
-        </nav>
-
-        <!-- Header -->
+        </nav>        <!-- Header -->
         <header>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         {% if site.header.avatar %}
-                        <img class="img-responsive" src="{{ site.header.avatar | prepend: site.baseurl }}" alt="Profile Picture">
+                        <img class="img-responsive" src="{{ site.header.avatar | prepend: site.baseurl }}" alt="{{ site.header.title | default: site.title }}" data-en-alt="Profile Picture" data-pt-br-alt="Foto de Perfil">
                         {% endif %}
                         <div class="intro-text">
-                            <span class="name">{{ site.header.title | default: site.title }}</span>
+                            <span class="name" data-en="{{ site.header.title | default: site.title }}" data-pt-br="{{ site.data.pt-br.header.title | default: 'DANDAMPI' }}">{{ site.header.title | default: site.title }}</span>
                             <hr class="star-light">
-                            <span class="skills">{{ site.header.subtitle }}</span>
+                            <span class="skills" data-en="{{ site.header.subtitle }}" data-pt-br="{{ site.data.pt-br.header.subtitle | default: 'Código, Cultura & Criatividade. Conectados.' }}">{{ site.header.subtitle }}</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>Portfolio</h2>
+                        <h2 data-en="Portfolio" data-pt-br="Portfólio">Portfolio</h2>
                         <hr class="star-primary">
                     </div>
                 </div>
@@ -71,24 +72,24 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="portfolio-filter text-center">
-                            <button class="filter-btn active" data-filter="all">All Projects</button>
-                            <button class="filter-btn" data-filter="roblox">Roblox</button>
-                            <button class="filter-btn" data-filter="mobile">Mobile</button>
-                            <button class="filter-btn" data-filter="ar">AR</button>
-                            <button class="filter-btn" data-filter="web">Web</button>
-                            <button class="filter-btn" data-filter="educational">Educational</button>
-                            <button class="filter-btn" data-filter="cultural">Cultural</button>
-                            <button class="filter-btn" data-filter="children">Children</button>
-                            <button class="filter-btn" data-filter="sports">Sports</button>
-                            <button class="filter-btn" data-filter="vehicles">Vehicles</button>
-                            <button class="filter-btn" data-filter="multiplayer">Multiplayer</button>
+                            <button type="button" class="filter-btn active" data-filter="all" data-en="All Projects" data-pt-br="Todos os Projetos">All Projects</button>
+                            <button type="button" class="filter-btn" data-filter="roblox" data-en="Roblox" data-pt-br="Roblox">Roblox</button>
+                            <button type="button" class="filter-btn" data-filter="mobile" data-en="Mobile" data-pt-br="Mobile">Mobile</button>
+                            <button type="button" class="filter-btn" data-filter="ar" data-en="AR" data-pt-br="RA">AR</button>
+                            <button type="button" class="filter-btn" data-filter="web" data-en="Web" data-pt-br="Web">Web</button>
+                            <button type="button" class="filter-btn" data-filter="educational" data-en="Educational" data-pt-br="Educacional">Educational</button>
+                            <button type="button" class="filter-btn" data-filter="cultural" data-en="Cultural" data-pt-br="Cultural">Cultural</button>
+                            <button type="button" class="filter-btn" data-filter="children" data-en="Children" data-pt-br="Infantil">Children</button>
+                            <button type="button" class="filter-btn" data-filter="sports" data-en="Sports" data-pt-br="Esportes">Sports</button>
+                            <button type="button" class="filter-btn" data-filter="vehicles" data-en="Vehicles" data-pt-br="Veículos">Vehicles</button>
+                            <button type="button" class="filter-btn" data-filter="multiplayer" data-en="Multiplayer" data-pt-br="Multiplayer">Multiplayer</button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="row portfolio-grid">
                     {% for project in site.data.projects %}
-                        <div class="col-md-6 col-lg-4 portfolio-item" data-categories="{% if project.category.size > 1 %}{% for cat in project.category %}{{ cat }}{% unless forloop.last %} {% endunless %}{% endfor %}{% else %}{% if project.category.first %}{{ project.category.first }}{% else %}{{ project.category }}{% endif %}{% endif %}">
+                        <div class="col-md-6 col-lg-4 portfolio-item" data-categories="{{ project.category | join: ' ' }}">
                             <a href="#portfolioModal{{ forloop.index }}" class="portfolio-link" data-toggle="modal">
                                 <div class="portfolio-image-container">
                                     <div class="caption">
@@ -96,11 +97,11 @@
                                             <i class="fa fa-search-plus fa-3x"></i>
                                         </div>
                                     </div>
-                                    <img src="{{ project.image | prepend: site.baseurl }}" 
+                                    <img src="{{ project.image | prepend: '/' }}" 
                                          onerror="this.src='https://via.placeholder.com/300x300/003366/FFFFFF?text={{ project.name | url_encode }}'"
                                          class="portfolio-image" alt="{{ project.name }}">
                                 </div>
-                                <h4 class="portfolio-title">{{ project.name }}</h4>
+                                <h4 class="portfolio-title" data-en="{{ project.name }}" data-project-key="{{ project.name }}">{{ project.name }}</h4>
                             </a>
                         </div>
                     {% endfor %}
@@ -113,27 +114,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>What We Do</h2>
+                        <h2 data-en="What We Do" data-pt-br="O Que Fazemos">What We Do</h2>
                         <hr class="star-light">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p><strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling.</p>
-                        <p><strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics.</p>
-                        <p><strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences.</p>
+                    <div class="row">
+                        <div class="col-lg-6" data-en="">
+                            <p data-en="<strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling." data-pt-br="<strong>Experiências Digitais:</strong> Criamos mundos 3D imersivos, jogos multiplayer e simulações interativas em plataformas como Roblox, Unity e Godot. Ideal para iniciativas educacionais, campanhas de marca e narrativa institucional."><strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling.</p>
+                            <p data-en="<strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics." data-pt-br="<strong>Campanhas Phygital:</strong> Conectamos produtos do mundo real a experiências digitais por meio de QR codes, realidade aumentada e mecânicas de recompensa."><strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics.</p>
+                            <p data-en="<strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences." data-pt-br="<strong>Jogos e Apps Mobile:</strong> Projetamos e desenvolvemos aplicativos móveis para Android e iOS, incluindo jogos educativos, guias culturais e experiências com RA."><strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences.</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p data-en="<strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms." data-pt-br="<strong>Desenvolvimento de Software Criativo:</strong> De ferramentas de automação a backends full-stack, construímos sistemas personalizados, ferramentas internas, SDKs e APIs para apoiar campanhas e plataformas digitais."><strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms.</p>
+                            <p data-en="<strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic." data-pt-br="<strong>Sistemas e Módulos para Roblox:</strong> Especializamo-nos em construir sistemas escaláveis e modulares em Luau, incluindo personalização de avatares, mecânicas de progressão e lógica multiplayer."><strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic.</p>
+                            <p data-en="<strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms." data-pt-br="<strong>Stack de Tecnologia:</strong> Unity 3D, Roblox Studio, SDKs de RA, desenvolvimento Android/iOS, Firebase, Node.js, Python, plataformas de VR."><strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms.</p>
+                        </div>
+                        <div class="col-lg-8 col-lg-offset-2 text-center">
+                            <a href="#contact" class="btn btn-lg btn-success page-scroll">
+                                <i class="fa fa-envelope"></i> <span data-en="Start a Project" data-pt-br="Iniciar um Projeto">Start a Project</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <p><strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms.</p>
-                        <p><strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic.</p>
-                        <p><strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms.</p>
-                    </div>
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <a href="#contact" class="btn btn-lg btn-success page-scroll">
-                            <i class="fa fa-envelope"></i> Start a Project
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -142,70 +143,69 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>{{ site.contact.title | default: "Let's Work Together" }}</h2>
+                        <h2 data-en="{{ site.contact.title | default: "Let's Work Together" }}" data-pt-br="{{ site.data.pt-br.contact.title | default: site.contact.title }}">{{ site.contact.title | default: "Let's Work Together" }}</h2>
                         <hr class="star-primary">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-						<div class="text-center" style="margin-top: 40px;">
-                            <h3>Who We Work With</h3>
-                            <ul class="text-left" style="max-width: 600px; margin: 0 auto;">
-                                <li><strong>Brands and agencies</strong> seeking playful, interactive digital engagement</li>
-                                <li><strong>NGOs and educational institutions</strong> looking to teach through games</li>
-                                <li><strong>Cultural organizations</strong> aiming to preserve and promote regional identity</li>
-                                <li><strong>Media and entertainment projects</strong> that demand strong technical and creative integration</li>
-                            </ul>
-                            <br>
-                            <p><strong>Direct Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-                            <p><strong>Location:</strong> Available for projects worldwide</p>
-                        </div>
-
-                        <p class="text-center">{{ site.contact.subtitle | default: "Ready to create something amazing? Get in touch and let's discuss your project." }}</p>
+                            <div class="text-center" style="margin-top: 40px;">
+                                <h3 data-en="Who We Work With" data-pt-br="Com quem trabalhamos">Who We Work With</h3>
+                                <ul class="text-left" style="max-width: 600px; margin: 0 auto;">
+                                    <li><strong data-en="Brands and agencies" data-pt-br="Marcas e agências">Brands and agencies</strong> <span data-en="seeking playful, interactive digital engagement" data-pt-br="buscar engajamento digital lúdico e interativo">seeking playful, interactive digital engagement</span></li>
+                                    <li><strong data-en="NGOs and educational institutions" data-pt-br="ONGs e instituições educacionais">NGOs and educational institutions</strong> <span data-en="looking to teach through games" data-pt-br="que procuram ensinar através de jogos">looking to teach through games</span></li>
+                                    <li><strong data-en="Cultural organizations" data-pt-br="Organizações culturais">Cultural organizations</strong> <span data-en="aiming to preserve and promote regional identity" data-pt-br="com o objetivo de preservar e promover a identidade regional">aiming to preserve and promote regional identity</span></li>
+                                    <li><strong data-en="Media and entertainment projects" data-pt-br="Projetos de mídia e entretenimento">Media and entertainment projects</strong> <span data-en="that demand strong technical and creative integration" data-pt-br="que exigem forte integração técnica e criativa">that demand strong technical and creative integration</span></li>
+                                </ul>
+                                <br>
+                                <p><strong data-en="Direct Email:" data-pt-br="Email direto:">Direct Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+                                <p data-en="Available for projects worldwide" data-pt-br="Disponível para projetos em todo o mundo">Available for projects worldwide</p>
+                            </div>
+                            <p class="text-center" data-en="{{ site.contact.subtitle | default: 'Ready to build something amazing? Get in touch.' }}" data-pt-br="{{ site.data.pt-br.contact.subtitle | default: site.contact.subtitle }}">{{ site.contact.subtitle }}</p>
                         
                         <!-- Contact Form -->
                         <form name="sentMessage" id="contactForm" novalidate>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name." data-en-validation="Please enter your name." data-pt-br-validation="Por favor, insira seu nome." data-en-placeholder="Name" data-pt-br-placeholder="Nome">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Email Address</label>
-                                    <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address." data-en-validation="Please enter your email address." data-pt-br-validation="Por favor, insira seu endereço de email." data-en-placeholder="Email Address" data-pt-br-placeholder="Endereço de Email">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Company/Organization</label>
-                                    <input type="text" class="form-control" placeholder="Company/Organization" id="company">
+                                    <label data-en="Company/Organization" data-pt-br="Empresa/Organização">Company/Organization</label>
+                                    <input type="text" class="form-control" placeholder="Company/Organization" id="company" data-en-placeholder="Company/Organization" data-pt-br-placeholder="Empresa/Organização">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Project Type</label>
+                                    <label data-en="Project Type" data-pt-br="Tipo de Projeto">Project Type</label>
                                     <select class="form-control" id="projectType">
-                                        <option value="">Select Project Type</option>
-                                        <option value="roblox">Roblox Development</option>
-                                        <option value="mobile">Mobile Games & Apps</option>
-                                        <option value="ar">Augmented Reality</option>
-                                        <option value="vr">Virtual Reality</option>
-                                        <option value="web">Web Development</option>
-                                        <option value="phygital">Phygital Campaign</option>
-                                        <option value="other">Other</option>
+                                        <option value="" data-en="Select Project Type" data-pt-br="Selecione o Tipo de Projeto">Select Project Type</option>
+                                        <option value="roblox" data-en="Roblox Development" data-pt-br="Desenvolvimento Roblox">Roblox Development</option>
+                                        <option value="mobile" data-en="Mobile Games & Apps" data-pt-br="Jogos e Apps Mobile">Mobile Games & Apps</option>
+                                        <option value="ar" data-en="Augmented Reality" data-pt-br="Realidade Aumentada">Augmented Reality</option>
+                                        <option value="vr" data-en="Virtual Reality" data-pt-br="Realidade Virtual">Virtual Reality</option>
+                                        <option value="web" data-en="Web Development" data-pt-br="Desenvolvimento Web">Web Development</option>
+                                        <option value="phygital" data-en="Phygital Campaign" data-pt-br="Campanha Phygital">Phygital Campaign</option>
+                                        <option value="other" data-en="Other" data-pt-br="Outro">Other</option>
                                     </select>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Message</label>
-                                    <textarea rows="5" class="form-control" placeholder="Tell us about your project..." id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <label data-en="Message" data-pt-br="Mensagem">Message</label>
+                                    <textarea rows="5" class="form-control" placeholder="Tell us about your project..." id="message" required data-validation-required-message="Please enter a message." data-en-placeholder="Tell us about your project..." data-pt-br-placeholder="Conte-nos sobre o seu projeto..." data-en-validation="Please enter a message." data-pt-br-validation="Por favor, insira uma mensagem."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12 text-center">
-                                    <button type="submit" class="btn btn-success btn-lg">Send Message</button>
+                                    <button type="submit" class="btn btn-success btn-lg" data-en="Send Message" data-pt-br="Enviar Mensagem">Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -228,11 +228,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-col col-md-4">
-                            <h3>Our Philosophy</h3>
-                            <p>At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire.</p>
+                            <h3 data-en="Our Philosophy" data-pt-br="Nossa Filosofia">Our Philosophy</h3>
+                            <p data-en="At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire." data-pt-br="Na DANDAMPI, acreditamos que a interação é uma das formas mais poderosas de educar, engajar e inspirar.">At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire.</p>
                         </div>
                         <div class="footer-col col-md-4">
-                            <h3>Connect With Us</h3>
+                            <h3 data-en="Connect With Us" data-pt-br="Conecte-se Conosco">Connect With Us</h3>
                             <ul class="list-inline">
                                 {% if site.email %}
                                 <li>
@@ -258,8 +258,8 @@
                             </ul>
                         </div>
                         <div class="footer-col col-md-4">
-                            <h3>Technology</h3>
-                            <p>We deliver projects that users want to return to, talk about, and remember through playful, purposeful design.</p>
+                            <h3 data-en="Technology" data-pt-br="Tecnologia">Technology</h3>
+                            <p data-en="We deliver projects that users want to return to, talk about, and remember through playful, purposeful design." data-pt-br="Entregamos projetos aos quais os usuários queiram voltar, falar e lembrar, por meio de design lúdico e com propósito.">We deliver projects that users want to return to, talk about, and remember through playful, purposeful design.</p>
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }} - Creative Technology Studio
+                            Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }} - <span data-en="Creative Technology Studio" data-pt-br="Estúdio de Tecnologia Criativa">Creative Technology Studio</span>
                         </div>
                     </div>
                 </div>
@@ -297,7 +297,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-lg-offset-2">
                                     <div class="modal-body">
-                                        <h2 class="text-center">{{ project.name }}</h2>
+                                        <h2 class="text-center" data-en="{{ project.name }}" data-project-key="{{ project.name }}">{{ project.name }}</h2>
                                         <hr class="star-primary">
                                         
                                         <!-- Project Media Carousel -->
@@ -327,7 +327,7 @@
                                                         </div>
                                                         {% elsif item.type == "image" %}
                                                         <div class="image-container">
-                                                            <img src="{{ item.src | prepend: site.baseurl }}" 
+                                                            <img src="{{ item.src | prepend: '/' }}" 
                                                                  onerror="this.src='https://via.placeholder.com/600x400/003366/FFFFFF?text=Image+Not+Found'"
                                                                  class="carousel-image" alt="Project Image">
                                                         </div>
@@ -338,13 +338,13 @@
                                                 
                                                 <!-- Left and right controls -->
                                                 {% if project.carousel.size > 1 %}
-                                                <a class="left carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="prev">
+                                                    <a class="left carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="prev">
                                                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                                    <span class="sr-only">Previous</span>
+                                                    <span class="sr-only" data-en="Previous" data-pt-br="Anterior">Previous</span>
                                                 </a>
                                                 <a class="right carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="next">
                                                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                                    <span class="sr-only">Next</span>
+                                                    <span class="sr-only" data-en="Next" data-pt-br="Próximo">Next</span>
                                                 </a>
                                                 {% endif %}
                                             </div>
@@ -352,30 +352,38 @@
                                         {% else %}
                                         <!-- Fallback to single image if no carousel data -->
                                         <div class="text-center">
-                                            <img src="{{ project.image | prepend: site.baseurl }}" 
+                                            <img src="{{ project.image | prepend: '/' }}" 
                                                  onerror="this.src='https://via.placeholder.com/600x400/003366/FFFFFF?text={{ project.name | url_encode }}'"
                                                  class="img-responsive modal-image" alt="{{ project.name }}">
                                         </div>
                                         {% endif %}
                                         
                                         <div class="project-details">
-                                            <p class="text-center">{{ project.description }}</p>
+                                            <p class="text-center" data-en="{{ project.description }}" data-project-key="{{ project.name }}.description">{{ project.description }}</p>
                                             <div class="text-center project-categories">
-                                                <strong>Categories:</strong>
+                                                <strong data-en="Categories:" data-pt-br="Categorias:">Categories:</strong>
                                                 {% if project.category %}
                                                     {% if project.category.size > 1 %}
                                                         <!-- Multiple categories as array -->
                                                         {% for cat in project.category %}
-                                                        <span class="category-badge">{{ cat | capitalize }}</span>
+                                                        {% assign catkey = cat | downcase %}
+                                                        {% assign cat_pt = site.data['pt-br'].portfolio.filter[catkey] %}
+                                                        <span class="category-badge" data-en="{{ cat | capitalize }}" data-pt-br="{{ cat_pt | default: cat | capitalize }}">{{ cat | capitalize }}</span>
                                                         {% endfor %}
                                                     {% else %}
                                                         <!-- Single category or first item of array -->
                                                         {% if project.category.first %}
                                                             <!-- It's an array with one item -->
-                                                            <span class="category-badge">{{ project.category.first | capitalize }}</span>
+                                                            {% assign cat = project.category.first %}
+                                                            {% assign catkey = cat | downcase %}
+                                                            {% assign cat_pt = site.data['pt-br'].portfolio.filter[catkey] %}
+                                                            <span class="category-badge" data-en="{{ cat | capitalize }}" data-pt-br="{{ cat_pt | default: cat | capitalize }}">{{ cat | capitalize }}</span>
                                                         {% else %}
                                                             <!-- It's a string -->
-                                                            <span class="category-badge">{{ project.category | capitalize }}</span>
+                                                            {% assign cat = project.category %}
+                                                            {% assign catkey = cat | downcase %}
+                                                            {% assign cat_pt = site.data['pt-br'].portfolio.filter[catkey] %}
+                                                            <span class="category-badge" data-en="{{ cat | capitalize }}" data-pt-br="{{ cat_pt | default: cat | capitalize }}">{{ cat | capitalize }}</span>
                                                         {% endif %}
                                                     {% endif %}
                                                 {% endif %}
@@ -383,25 +391,28 @@
                                             <div class="text-center modal-buttons">
                                                 {% if project.cta_type == "play" %}
                                                     {% assign button_text = "Play Now" %}
+                                                    {% assign button_text_pt = "Jogar Agora" %}
                                                     {% assign button_icon = "fa-gamepad" %}
                                                 {% elsif project.cta_type == "download" %}
                                                     {% assign button_text = "Download" %}
+                                                    {% assign button_text_pt = "Baixar" %}
                                                     {% assign button_icon = "fa-mobile" %}
                                                 {% else %}
                                                     {% assign button_text = "View Project" %}
+                                                    {% assign button_text_pt = "Ver Projeto" %}
                                                     {% assign button_icon = "fa-external-link" %}
                                                 {% endif %}
                                                 
                                                 <a href="{{ project.url }}" class="btn btn-success btn-lg" target="_blank">
-                                                    <i class="fa {{ button_icon }}"></i> {{ button_text }}
+                                                    <i class="fa {{ button_icon }}"></i> <span class="cta-button-text" data-en="{{ button_text }}" data-pt-br="{{ button_text_pt }}">{{ button_text }}</span>
                                                 </a>
                                                 {% if project.instagram %}
                                                 <a href="{{ project.instagram }}" class="btn btn-instagram btn-lg" target="_blank">
-                                                    <i class="fa fa-instagram"></i> Instagram
+                                                    <i class="fa fa-instagram"></i> <span data-en="Instagram" data-pt-br="Instagram">Instagram</span>
                                                 </a>
                                                 {% endif %}
                                                 <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">
-                                                    <i class="fa fa-times"></i> Close
+                                                    <i class="fa fa-times"></i> <span data-en="Close" data-pt-br="Fechar">Close</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -416,11 +427,66 @@
 
         <!-- Custom JavaScript -->
         <script>
+        // Portuguese translations for projects (generated from _data/projects_pt_br.yml)
+        const projectTranslations = {{ site.data.projects_pt_br.translations | jsonify }};
+
         $(document).ready(function() {
-            // Highlight the top nav as scrolling occurs
-            $('body').scrollspy({
-                target: '.navbar-fixed-top',
-                offset: 51
+            // Custom active-nav handler: compute offsets after load and update active link deterministically
+            $(window).on('load', function() {
+                var navHeight = $('.navbar-fixed-top').outerHeight() || 0;
+
+                // Sections we care about (order matters)
+                var sections = [
+                    { id: '#page-top' },
+                    { id: '#portfolio' },
+                    { id: '#about' },
+                    { id: '#contact' }
+                ];
+
+                function computeOffsets() {
+                    sections.forEach(function(s) {
+                        var $el = $(s.id);
+                        s.offset = $el.length ? Math.floor($el.offset().top) : Infinity;
+                    });
+                }
+
+                // Simple throttle
+                function throttle(fn, wait) {
+                    var last = 0;
+                    return function() {
+                        var now = Date.now();
+                        if (now - last >= wait) {
+                            last = now;
+                            fn.apply(this, arguments);
+                        }
+                    };
+                }
+
+                function updateActiveNav() {
+                    var pos = $(document).scrollTop() + navHeight + 5;
+                    var activeId = sections[0].id; // default to top
+                    for (var i = 0; i < sections.length; i++) {
+                        if (pos >= sections[i].offset) activeId = sections[i].id;
+                    }
+
+                    // Update nav classes
+                    $('.navbar-nav li').removeClass('active');
+                    var $link = $('.navbar-nav a[href="' + activeId + '"]');
+                    if ($link.length) $link.parent('li').addClass('active');
+                }
+
+                // Initial compute and bind handlers
+                computeOffsets();
+                $(window).on('resize', throttle(function() {
+                    navHeight = $('.navbar-fixed-top').outerHeight() || 0;
+                    computeOffsets();
+                    updateActiveNav();
+                }, 150));
+
+                $(window).on('scroll', throttle(updateActiveNav, 100));
+
+                // One initial call to set the correct active item
+                updateActiveNav();
             });
 
             // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -466,12 +532,14 @@
                 
                 // Basic validation
                 if (!name || !email || !message) {
-                    $('#success').html("<div class='alert alert-danger'>Please fill in all required fields.</div>");
+                    var err = (currentLang === 'pt-br') ? 'Por favor, preencha todos os campos obrigatórios.' : 'Please fill in all required fields.';
+                    $('#success').html("<div class='alert alert-danger'>" + err + "</div>");
                     return;
                 }
-                
+
                 // Show success message
-                $('#success').html("<div class='alert alert-success'><strong>Thank you for your message!</strong> We'll get back to you soon.</div>");
+                var successMsg = (currentLang === 'pt-br') ? '<strong>Obrigado pela sua mensagem!</strong> Entraremos em contato em breve.' : '<strong>Thank you for your message!</strong> We\'ll get back to you soon.';
+                $('#success').html("<div class='alert alert-success'>" + successMsg + "</div>");
                 
                 // Clear form
                 $('#contactForm')[0].reset();
@@ -490,7 +558,7 @@
                 // Open mail client (optional - for development)
                 // window.location.href = "mailto:{{ site.email }}?subject=" + subject + "&body=" + body;
                 
-                console.log("Form submitted:", { name, email, company, projectType, message });
+                // Form submission handled; debug logging removed for production.
             });
 
             // Clear success messages on focus
@@ -499,8 +567,13 @@
             });
 
             // Portfolio Filter Functionality
-            $('.filter-btn').click(function() {
+            // console.log('Number of filter buttons found:', $('.filter-btn').length);
+            $('.filter-btn').click(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 var filterValue = $(this).data('filter');
+                // console.log('Filter clicked:', filterValue); // Debug log
                 
                 // Update active button
                 $('.filter-btn').removeClass('active');
@@ -522,6 +595,11 @@
             });
 
             // Initialize portfolio items as visible
+            // console.log('Number of portfolio items found:', $('.portfolio-item').length);
+            $('.portfolio-item').each(function(index) {
+                var categories = $(this).data('categories');
+                // console.log('Portfolio item', index, 'categories:', categories);
+            });
             $('.portfolio-item').addClass('visible');
 
             // Stop YouTube videos when modal is closed
@@ -548,6 +626,126 @@
                     });
                 }, 300);
             });
+
+            // Language Detection and Switching
+            let currentLang = 'en';
+            
+            // Detect user's preferred language
+            function detectLanguage() {
+                const savedLang = localStorage.getItem('preferred-language');
+                if (savedLang && (savedLang === 'en' || savedLang === 'pt-br')) {
+                    return savedLang;
+                }
+                
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.toLowerCase().startsWith('pt')) {
+                    return 'pt-br';
+                }
+                
+                return 'en';
+            }
+
+            // Switch language function
+            window.switchLanguage = function(lang) {
+                currentLang = lang;
+                localStorage.setItem('preferred-language', lang);
+
+                // Update elements with data attributes (regular UI elements)
+                document.querySelectorAll('[data-en][data-pt-br]').forEach(el => {
+                    const text = el.getAttribute('data-' + lang);
+                    if (text) {
+                        // If the localized string contains HTML tags, set innerHTML so tags like <strong> are rendered.
+                        if (text.indexOf('<') !== -1 || text.indexOf('&lt;') !== -1) {
+                            el.innerHTML = text;
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                });
+
+                // Update placeholders for inputs and textareas
+                document.querySelectorAll('[data-en-placeholder][data-pt-br-placeholder]').forEach(el => {
+                    const ph = el.getAttribute('data-' + lang + '-placeholder');
+                    if (ph) {
+                        el.setAttribute('placeholder', ph);
+                    }
+                });
+
+                // Update select option labels
+                document.querySelectorAll('select option[data-en][data-pt-br]').forEach(opt => {
+                    const text = opt.getAttribute('data-' + lang);
+                    if (text) opt.textContent = text;
+                });
+
+                // Update project titles and descriptions
+                document.querySelectorAll('[data-project-key]').forEach(el => {
+                    const projectKey = el.getAttribute('data-project-key');
+                    const originalText = el.getAttribute('data-en');
+
+                    if (lang === 'pt-br') {
+                        // Check if this is a description (contains .description)
+                        if (projectKey.endsWith('.description')) {
+                            const baseKey = projectKey.replace('.description', '');
+                            if (projectTranslations[baseKey] && projectTranslations[baseKey].description) {
+                                const desc = projectTranslations[baseKey].description;
+                                if (desc && (desc.indexOf('<') !== -1 || desc.indexOf('&lt;') !== -1)) {
+                                    el.innerHTML = desc;
+                                } else if (desc) {
+                                    el.textContent = desc;
+                                }
+                            }
+                        } else {
+                            // It's a title/name
+                            if (projectTranslations[projectKey] && projectTranslations[projectKey].name) {
+                                const name = projectTranslations[projectKey].name;
+                                if (name && (name.indexOf('<') !== -1 || name.indexOf('&lt;') !== -1)) {
+                                    el.innerHTML = name;
+                                } else if (name) {
+                                    el.textContent = name;
+                                }
+                            }
+                        }
+                    } else {
+                        // Use English (original text from data-en attribute)
+                        if (originalText) {
+                            if (originalText.indexOf('<') !== -1 || originalText.indexOf('&lt;') !== -1) {
+                                el.innerHTML = originalText;
+                            } else {
+                                el.textContent = originalText;
+                            }
+                        }
+                    }
+                });
+
+                // Update CTA/other button spans
+                document.querySelectorAll('button span[data-en][data-pt-br], a span[data-en][data-pt-br], span[data-en][data-pt-br]').forEach(el => {
+                    // avoid overwriting elements that also have data-project-key
+                    if (el.hasAttribute('data-project-key')) return;
+                    const text = el.getAttribute('data-' + lang);
+                    if (text) {
+                        if (text.indexOf('<') !== -1 || text.indexOf('&lt;') !== -1) {
+                            el.innerHTML = text;
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                });
+
+                // Update language switcher active state
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.toggle('active', option.getAttribute('data-lang') === lang);
+                });
+                // Update the visible current-language label if present
+                const currentLabel = document.getElementById('current-language');
+                if (currentLabel) {
+                    const label = currentLabel.getAttribute('data-' + lang) || currentLabel.textContent;
+                    currentLabel.textContent = label;
+                }
+            };
+
+            // Initialize language on page load
+            const initialLang = detectLanguage();
+            switchLanguage(initialLang);
         });
         </script>
     </body>

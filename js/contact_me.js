@@ -19,16 +19,20 @@ $(function () {
         firstName = name.split(" ").slice(0, -1).join(" ");
       }
 
-      // Show success message
+      // Show success message (localized if `currentLang` is defined)
+      var successTitle =
+        typeof currentLang !== "undefined" && currentLang === "pt-br"
+          ? "<strong>Obrigado pela sua mensagem!</strong>"
+          : "<strong>Your message has been sent.</strong>";
+      var successBody =
+        typeof currentLang !== "undefined" && currentLang === "pt-br"
+          ? " Entraremos em contato em breve."
+          : " We'll get back to you soon.";
       $("#success").html("<div class='alert alert-success'>");
-      $("#success > .alert-success")
-        .html(
-          "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
-        )
-        .append("</button>");
-      $("#success > .alert-success").append(
-        "<strong>Your message has been sent. </strong>"
+      $("#success > .alert-success").html(
+        "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"
       );
+      $("#success > .alert-success").append(successTitle + successBody);
       $("#success > .alert-success").append("</div>");
 
       // Clear all fields
@@ -36,12 +40,7 @@ $(function () {
 
       // Note: For a production site, you would want to integrate with a form service
       // like Formspree, Netlify Forms, or a custom backend to actually send the email
-      console.log("Form submission details:");
-      console.log("Name: " + name);
-      console.log("Email: " + email);
-      console.log("Company: " + company);
-      console.log("Project Type: " + projectType);
-      console.log("Message: " + message);
+      // Form submission handled; debug logging removed in production.
     },
     filter: function () {
       return $(this).is(":visible");
