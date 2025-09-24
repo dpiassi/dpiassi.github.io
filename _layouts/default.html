@@ -411,20 +411,20 @@
                                             <div class="text-center modal-buttons">
                                                 {% for cta in project.ctas %}
                                                     {% if cta.type == "play" %}
-                                                        {% assign button_text = "Play Now" %}
-                                                        {% assign button_text_pt = "Jogar Agora" %}
+                                                        {% assign button_text = site.data.en.modal.play %}
+                                                        {% assign button_text_pt = site.data['pt-br'].modal.play %}
                                                         {% assign button_icon = "fa-gamepad" %}
                                                     {% elsif cta.type == "download" %}
-                                                        {% assign button_text = "Download" %}
-                                                        {% assign button_text_pt = "Baixar" %}
+                                                        {% assign button_text = site.data.en.modal.download %}
+                                                        {% assign button_text_pt = site.data['pt-br'].modal.download %}
                                                         {% assign button_icon = "fa-mobile" %}
                                                     {% elsif cta.type == "ar" %}
-                                                        {% assign button_text = "View in AR" %}
-                                                        {% assign button_text_pt = "Ver em AR" %}
+                                                        {% assign button_text = site.data.en.modal.view_ar %}
+                                                        {% assign button_text_pt = site.data['pt-br'].modal.view_ar %}
                                                         {% assign button_icon = "fa-cube" %}
                                                     {% else %}
-                                                        {% assign button_text = "View Project" %}
-                                                        {% assign button_text_pt = "Ver Projeto" %}
+                                                        {% assign button_text = site.data.en.modal.view_project %}
+                                                        {% assign button_text_pt = site.data['pt-br'].modal.view_project %}
                                                         {% assign button_icon = "fa-external-link" %}
                                                     {% endif %}
                                                     
