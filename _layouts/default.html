@@ -409,23 +409,29 @@
                                                 {% endif %}
                                             </div>
                                             <div class="text-center modal-buttons">
-                                                {% if project.cta_type == "play" %}
-                                                    {% assign button_text = "Play Now" %}
-                                                    {% assign button_text_pt = "Jogar Agora" %}
-                                                    {% assign button_icon = "fa-gamepad" %}
-                                                {% elsif project.cta_type == "download" %}
-                                                    {% assign button_text = "Download" %}
-                                                    {% assign button_text_pt = "Baixar" %}
-                                                    {% assign button_icon = "fa-mobile" %}
-                                                {% else %}
-                                                    {% assign button_text = "View Project" %}
-                                                    {% assign button_text_pt = "Ver Projeto" %}
-                                                    {% assign button_icon = "fa-external-link" %}
-                                                {% endif %}
-                                                
-                                                <a href="{{ project.url }}" class="btn btn-success btn-lg" target="_blank">
-                                                    <i class="fa {{ button_icon }}"></i> <span class="cta-button-text" data-en="{{ button_text }}" data-pt-br="{{ button_text_pt }}">{{ button_text }}</span>
-                                                </a>
+                                                {% for cta in project.ctas %}
+                                                    {% if cta.type == "play" %}
+                                                        {% assign button_text = "Play Now" %}
+                                                        {% assign button_text_pt = "Jogar Agora" %}
+                                                        {% assign button_icon = "fa-gamepad" %}
+                                                    {% elsif cta.type == "download" %}
+                                                        {% assign button_text = "Download" %}
+                                                        {% assign button_text_pt = "Baixar" %}
+                                                        {% assign button_icon = "fa-mobile" %}
+                                                    {% elsif cta.type == "ar" %}
+                                                        {% assign button_text = "View in AR" %}
+                                                        {% assign button_text_pt = "Ver em AR" %}
+                                                        {% assign button_icon = "fa-cube" %}
+                                                    {% else %}
+                                                        {% assign button_text = "View Project" %}
+                                                        {% assign button_text_pt = "Ver Projeto" %}
+                                                        {% assign button_icon = "fa-external-link" %}
+                                                    {% endif %}
+                                                    
+                                                    <a href="{{ cta.url }}" class="btn btn-success btn-lg" target="_blank">
+                                                        <i class="fa {{ button_icon }}"></i> <span class="cta-button-text" data-en="{{ button_text }}" data-pt-br="{{ button_text_pt }}">{{ button_text }}</span>
+                                                    </a>
+                                                {% endfor %}
                                                 {% if project.instagram %}
                                                 <a href="{{ project.instagram }}" class="btn btn-instagram btn-lg" target="_blank">
                                                     <i class="fa fa-instagram"></i> <span data-en="{{ site.data.en.modal.instagram }}" data-pt-br="{{ site.data['pt-br'].modal.instagram }}">{{ site.data.en.modal.instagram }}</span>

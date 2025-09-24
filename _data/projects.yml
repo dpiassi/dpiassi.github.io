@@ -1,9 +1,12 @@
 - name: "Surpresa World"
   description: "Educational Roblox game created in partnership with Nestlé, exploring chocolate production through sustainability-themed missions with AR and QR integration."
   image: "img/portfolio/surpresa-world.webp"
-  url: "https://www.roblox.com/games/16187824627/Mundo-Surpresa"
   category: ["roblox", "educational", "ar", "multiplayer"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "https://www.roblox.com/games/16187824627/Mundo-Surpresa"
+    - type: "ar"
+      url: "https://amostras.euqueronestle.com.br/sites/chocolates/surpresa-ra/"
   carousel:
     - type: "youtube"
       id: "4Lhh1175sk4"
@@ -19,9 +22,10 @@
 - name: "LOUD League: Soccer Legends"
   description: "Competitive multiplayer soccer game for Latin America's leading esports brand, featuring custom avatars and leaderboard progression."
   image: "img/portfolio/loud-league.webp"
-  url: "https://www.roblox.com/games/15505318000/LOUD-League-Soccer-Legends"
   category: ["roblox", "sports", "multiplayer"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "https://www.roblox.com/games/15505318000/LOUD-League-Soccer-Legends"
   carousel:
     - type: "youtube"
       id: "KdrcnifxInk"
@@ -55,9 +59,10 @@
 - name: "Sportv Land"
   description: "Interactive world for Brazil's largest sports television network, filled with themed minigames and seasonal events."
   image: "img/portfolio/sportv-land.webp"
-  url: "https://www.roblox.com/games/11512530631/Sportv-Land-ATUALIZADO"
   category: ["roblox", "sports", "multiplayer"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "https://www.roblox.com/games/11512530631/Sportv-Land-ATUALIZADO"
   carousel:
     - type: "youtube"
       id: "RzC9dOpuoEg"
@@ -65,9 +70,10 @@
 - name: "Soapbox: Race Mayhem"
   description: "Multiplayer downhill racing game featuring fully customizable soapbox cars, physics-based collisions, and chaotic gameplay across vibrant obstacle tracks."
   image: "img/portfolio/soapbox.webp"
-  url: "https://www.roblox.com/games/123488047751324/Soapbox-Race-Mayhem"
   category: ["roblox", "multiplayer", "vehicles"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "https://www.roblox.com/games/123488047751324/Soapbox-Race-Mayhem"
   carousel:
     - type: "image"
       src: "img/portfolio/soapbox-1.webp"
@@ -75,9 +81,10 @@
 - name: "Hyperlight Wings"
   description: "Roblox flight simulation developed during Roblox Fall Accelerator 2021, featuring advanced physics and multiplayer mechanics."
   image: "img/portfolio/hyperlight-wings.webp"
-  url: "https://www.roblox.com/games/6882790797/Hyperlight-Wings-Alpha"
   category: ["roblox", "multiplayer", "vehicles"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "https://www.roblox.com/games/6882790797/Hyperlight-Wings-Alpha"
   carousel:
     - type: "youtube"
       id: "guAYUaj3qUw"
@@ -89,9 +96,10 @@
 - name: "InPeace Metaverse"
   description: "Gamified ecosystem for faith-based education and exploration, available on Android and iOS with community spaces and narrative missions."
   image: "img/portfolio/inpeace.png"
-  url: "https://youtube.com/shorts/xnJz0NBn6rg"
   category: ["mobile", "multiplayer"]
-  cta_type: "view"
+  ctas:
+    - type: "view"
+      url: "https://youtube.com/shorts/xnJz0NBn6rg"
   carousel:
     - type: "youtube"
       id: "xnJz0NBn6rg"
@@ -99,33 +107,37 @@
 - name: "Letters and Sounds of Nature"
   description: "Phonics-based educational game for young learners, combining nature themes with literacy development through interactive mobile gameplay."
   image: "img/portfolio/letters-sounds.png"
-  url: "https://onelink.to/254pgk"
   instagram: "https://www.instagram.com/letrasesons_/"
   category: ["mobile", "educational", "children"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "https://onelink.to/254pgk"
 
 - name: "Culinária Capixaba"
   description: "Augmented reality application teaching traditional Brazilian cuisine through cultural storytelling with geolocation and object tracking."
   image: "img/portfolio/culinaria-ar.png"
-  url: "https://play.google.com/store/apps/details?id=com.Realink.Persona.CulinariaCapixaba"
   instagram: "https://www.instagram.com/capixaba.culinaria/"
   category: ["ar", "cultural", "educational", "mobile"]
-  cta_type: "download"
+  ctas:
+    - type: "download"
+      url: "https://play.google.com/store/apps/details?id=com.Realink.Persona.CulinariaCapixaba"
 
 - name: "Revolta de Queimados"
   description: "Immersive historical experience blending mobile gameplay with AR to narrate an important local rebellion in Brazilian history."
   image: "img/portfolio/revolta-queimados.png"
-  url: "https://play.google.com/store/apps/details?id=com.Realink.Persona.RevoltaDeQueimados"
   instagram: "https://www.instagram.com/revolta.queimados/"
   category: ["ar", "educational", "mobile"]
-  cta_type: "download"
+  ctas:
+    - type: "download"
+      url: "https://play.google.com/store/apps/details?id=com.Realink.Persona.RevoltaDeQueimados"
 
 - name: "Boneco Neco: Adventures on Capixaba's Land"
   description: "Web and mobile game introducing children to regional culture through exploration and quests set in real Brazilian landscapes."
   image: "img/portfolio/boneco-neco.png"
-  url: "http://onelink.to/5vhycb"
   category: ["web", "mobile", "cultural", "children"]
-  cta_type: "play"
+  ctas:
+    - type: "play"
+      url: "http://onelink.to/5vhycb"
   carousel:
     - type: "youtube"
       id: "yd1TM-PTGBI"
@@ -133,9 +145,10 @@
 - name: "Coloring Capixaba's Culture"
   description: "Interactive coloring book app featuring traditional characters and artifacts from local folklore and culinary culture."
   image: "img/portfolio/coloring.png"
-  url: "http://onelink.to/5vhycb"
   category: ["mobile", "cultural", "children"]
-  cta_type: "download"
+  ctas:
+    - type: "download"
+      url: "http://onelink.to/5vhycb"
   carousel:
     - type: "youtube"
       id: "EAiJ2s8gEes"
