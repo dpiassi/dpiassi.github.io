@@ -164,32 +164,32 @@
                             <p class="text-center" data-en="{{ site.contact.subtitle | default: 'Ready to build something amazing? Get in touch.' }}" data-pt-br="{{ site.data.pt-br.contact.subtitle | default: site.contact.subtitle }}">{{ site.contact.subtitle }}</p>
                         
                         <!-- Contact Form -->
-                        <form name="sentMessage" id="contactForm" novalidate>
+                        <form name="sentMessage" id="contactForm" novalidate action="https://formspree.io/f/xwprkddy" method="POST">
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name." data-en-validation="Please enter your name." data-pt-br-validation="Por favor, insira seu nome." data-en-placeholder="Name" data-pt-br-placeholder="Nome">
+                                    <input type="text" class="form-control" placeholder="Name" id="name" name="name" required data-validation-required-message="Please enter your name." data-en-validation="Please enter your name." data-pt-br-validation="Por favor, insira seu nome." data-en-placeholder="Name" data-pt-br-placeholder="Nome">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label>Email Address</label>
-                                    <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address." data-en-validation="Please enter your email address." data-pt-br-validation="Por favor, insira seu endereço de email." data-en-placeholder="Email Address" data-pt-br-placeholder="Endereço de Email">
+                                    <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required data-validation-required-message="Please enter your email address." data-en-validation="Please enter your email address." data-pt-br-validation="Por favor, insira seu endereço de email." data-en-placeholder="Email Address" data-pt-br-placeholder="Endereço de Email">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label data-en="Company/Organization" data-pt-br="Empresa/Organização">Company/Organization</label>
-                                    <input type="text" class="form-control" placeholder="Company/Organization" id="company" data-en-placeholder="Company/Organization" data-pt-br-placeholder="Empresa/Organização">
+                                    <input type="text" class="form-control" placeholder="Company/Organization" id="company" name="company" data-en-placeholder="Company/Organization" data-pt-br-placeholder="Empresa/Organização">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label data-en="Project Type" data-pt-br="Tipo de Projeto">Project Type</label>
-                                    <select class="form-control" id="projectType">
+                                    <select class="form-control" id="projectType" name="projectType">
                                         <option value="" data-en="Select Project Type" data-pt-br="Selecione o Tipo de Projeto">Select Project Type</option>
                                         <option value="roblox" data-en="Roblox Development" data-pt-br="Desenvolvimento Roblox">Roblox Development</option>
                                         <option value="mobile" data-en="Mobile Games & Apps" data-pt-br="Jogos e Apps Mobile">Mobile Games & Apps</option>
@@ -205,10 +205,12 @@
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label data-en="Message" data-pt-br="Mensagem">Message</label>
-                                    <textarea rows="5" class="form-control" placeholder="Tell us about your project..." id="message" required data-validation-required-message="Please enter a message." data-en-placeholder="Tell us about your project..." data-pt-br-placeholder="Conte-nos sobre o seu projeto..." data-en-validation="Please enter a message." data-pt-br-validation="Por favor, insira uma mensagem."></textarea>
+                                    <textarea rows="5" class="form-control" placeholder="Tell us about your project..." id="message" name="message" required data-validation-required-message="Please enter a message." data-en-placeholder="Tell us about your project..." data-pt-br-placeholder="Conte-nos sobre o seu projeto..." data-en-validation="Please enter a message." data-pt-br-validation="Por favor, insira uma mensagem."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
+                            <!-- Honeypot to deter bots (leave hidden). Formspree will ignore blank values; bots often fill this. -->
+                            <input type="text" name="_gotcha" id="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                             <br>
                             <div id="success"></div>
                             <div class="row">
@@ -520,46 +522,7 @@
                 $(this).removeClass('floating-label-form-group-with-focus');
             });
 
-            // Contact form submission
-            $("#contactForm").submit(function(e) {
-                e.preventDefault();
-                
-                var name = $("#name").val();
-                var email = $("#email").val();
-                var company = $("#company").val();
-                var projectType = $("#projectType").val();
-                var message = $("#message").val();
-                
-                // Basic validation
-                if (!name || !email || !message) {
-                    var err = (currentLang === 'pt-br') ? 'Por favor, preencha todos os campos obrigatórios.' : 'Please fill in all required fields.';
-                    $('#success').html("<div class='alert alert-danger'>" + err + "</div>");
-                    return;
-                }
-
-                // Show success message
-                var successMsg = (currentLang === 'pt-br') ? '<strong>Obrigado pela sua mensagem!</strong> Entraremos em contato em breve.' : '<strong>Thank you for your message!</strong> We\'ll get back to you soon.';
-                $('#success').html("<div class='alert alert-success'>" + successMsg + "</div>");
-                
-                // Clear form
-                $('#contactForm')[0].reset();
-                $('.floating-label-form-group').removeClass('floating-label-form-group-with-value');
-                
-                // Create mailto link for manual handling
-                var subject = encodeURIComponent("New Project Inquiry" + (projectType ? " - " + projectType : ""));
-                var body = encodeURIComponent(
-                    "Name: " + name + "\n" +
-                    "Email: " + email + "\n" +
-                    (company ? "Company: " + company + "\n" : "") +
-                    (projectType ? "Project Type: " + projectType + "\n" : "") +
-                    "\nMessage:\n" + message
-                );
-                
-                // Open mail client (optional - for development)
-                // window.location.href = "mailto:{{ site.email }}?subject=" + subject + "&body=" + body;
-                
-                // Form submission handled; debug logging removed for production.
-            });
+            // Contact form submission is handled in external `js/contact_me.js`.
 
             // Clear success messages on focus
             $('#name, #email, #company, #projectType, #message').focus(function() {
@@ -748,5 +711,12 @@
             switchLanguage(initialLang);
         });
         </script>
+        <script>
+        // Optional: set your Formspree reCAPTCHA v3 site key in _config.yml as `formspree_recaptcha_sitekey`.
+        // If set, the contact script will load reCAPTCHA and include a token in submissions.
+        window.FORMSPREE_RECAPTCHA_SITEKEY = '{{ site.formspree_recaptcha_sitekey | default: "" }}';
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.7/jqBootstrapValidation.min.js"></script>
+        <script src="{{ '/js/contact_me.js' | prepend: site.baseurl }}"></script>
     </body>
 </html>
