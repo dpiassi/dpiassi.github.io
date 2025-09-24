@@ -1,0 +1,59 @@
+# Site settings
+title: dandampi
+email: hello@dandampi.me
+description: >- # this means to ignore newlines until "baseurl:"
+  Creative technology studio and software house. Code, Culture & Creativity. Connected.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://dandampi.me" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+remote_theme: jeromelachaud/freelancer-theme
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# Freelancer Theme Configuration
+owner: "DANDAMPI DESENVOLVIMENTO DE SOFTWARE LTDA"
+
+# Header section
+header:
+  title: "DANDAMPI"
+  subtitle: "Code, Culture & Creativity. Connected."
+  avatar: "img/profile.svg"
+
+# About section
+about: "DANDAMPI is a creative technology studio and software house founded by developer and entrepreneur Daniel Piazzi. With more than a decade of experience in interactive systems, games, augmented reality, and mobile platforms, DANDAMPI delivers custom digital products that blend storytelling, learning, entertainment, and functionality."
+
+# Social usernames
+# github_username: dpiassi
+linkedin_username: dpiassi
+twitter_username: ""
+
+# Contact section
+contact:
+  title: "Let's Work Together"
+  subtitle: "Ready to create something amazing? Get in touch and let's discuss your project."
+
+# Color scheme (optional)
+color:
+  primary: "#003366"
+  secondary: "#004C99"
+
+# Google Analytics (optional)
+google_tracking_id: ""
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

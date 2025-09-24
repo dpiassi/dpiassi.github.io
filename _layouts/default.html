@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body id="page-top" class="index">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">{{ site.header.title | default: site.title }}</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% if site.header.avatar %}
+                        <img class="img-responsive" src="{{ site.header.avatar | prepend: site.baseurl }}" alt="Profile Picture">
+                        {% endif %}
+                        <div class="intro-text">
+                            <span class="name">{{ site.header.title | default: site.title }}</span>
+                            <hr class="star-light">
+                            <span class="skills">{{ site.header.subtitle }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Portfolio Grid Section -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Portfolio</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="portfolio-filter text-center">
+                            <button class="filter-btn active" data-filter="all">All Projects</button>
+                            <button class="filter-btn" data-filter="roblox">Roblox</button>
+                            <button class="filter-btn" data-filter="mobile">Mobile</button>
+                            <button class="filter-btn" data-filter="ar">AR</button>
+                            <button class="filter-btn" data-filter="web">Web</button>
+                            <button class="filter-btn" data-filter="educational">Educational</button>
+                            <button class="filter-btn" data-filter="cultural">Cultural</button>
+                            <button class="filter-btn" data-filter="children">Children</button>
+                            <button class="filter-btn" data-filter="sports">Sports</button>
+                            <button class="filter-btn" data-filter="vehicles">Vehicles</button>
+                            <button class="filter-btn" data-filter="multiplayer">Multiplayer</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row portfolio-grid">
+                    {% for project in site.data.projects %}
+                        <div class="col-md-6 col-lg-4 portfolio-item" data-categories="{% if project.category.size > 1 %}{% for cat in project.category %}{{ cat }}{% unless forloop.last %} {% endunless %}{% endfor %}{% else %}{% if project.category.first %}{{ project.category.first }}{% else %}{{ project.category }}{% endif %}{% endif %}">
+                            <a href="#portfolioModal{{ forloop.index }}" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-image-container">
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            <i class="fa fa-search-plus fa-3x"></i>
+                                        </div>
+                                    </div>
+                                    <img src="{{ project.image | prepend: site.baseurl }}" 
+                                         onerror="this.src='https://via.placeholder.com/300x300/003366/FFFFFF?text={{ project.name | url_encode }}'"
+                                         class="portfolio-image" alt="{{ project.name }}">
+                                </div>
+                                <h4 class="portfolio-title">{{ project.name }}</h4>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="success" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>What We Do</h2>
+                        <hr class="star-light">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p><strong>Digital Experiences:</strong> We create immersive 3D worlds, multiplayer games, and interactive simulations across platforms like Roblox, Unity, and Godot. Ideal for educational initiatives, branded campaigns, and institutional storytelling.</p>
+                        <p><strong>Phygital Campaigns:</strong> We connect real-world products to digital experiences through QR codes, augmented reality, and reward mechanics.</p>
+                        <p><strong>Mobile Games & Apps:</strong> We design and develop mobile applications for Android and iOS, including educational games, cultural guides, and AR-enhanced experiences.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p><strong>Creative Software Development:</strong> From automation tools to full-stack backends, we build custom systems, internal tools, SDKs, and APIs to support campaigns and digital platforms.</p>
+                        <p><strong>Roblox Systems & Modules:</strong> We specialize in building scalable, modular systems using Luau, including avatar customization, progression mechanics, and multiplayer logic.</p>
+                        <p><strong>Technology Stack:</strong> Unity 3D, Roblox Studio, AR SDKs, Android/iOS development, Firebase, Node.js, Python, VR platforms.</p>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <a href="#contact" class="btn btn-lg btn-success page-scroll">
+                            <i class="fa fa-envelope"></i> Start a Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>{{ site.contact.title | default: "Let's Work Together" }}</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+						<div class="text-center" style="margin-top: 40px;">
+                            <h3>Who We Work With</h3>
+                            <ul class="text-left" style="max-width: 600px; margin: 0 auto;">
+                                <li><strong>Brands and agencies</strong> seeking playful, interactive digital engagement</li>
+                                <li><strong>NGOs and educational institutions</strong> looking to teach through games</li>
+                                <li><strong>Cultural organizations</strong> aiming to preserve and promote regional identity</li>
+                                <li><strong>Media and entertainment projects</strong> that demand strong technical and creative integration</li>
+                            </ul>
+                            <br>
+                            <p><strong>Direct Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+                            <p><strong>Location:</strong> Available for projects worldwide</p>
+                        </div>
+
+                        <p class="text-center">{{ site.contact.subtitle | default: "Ready to create something amazing? Get in touch and let's discuss your project." }}</p>
+                        
+                        <!-- Contact Form -->
+                        <form name="sentMessage" id="contactForm" novalidate>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>Email Address</label>
+                                    <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>Company/Organization</label>
+                                    <input type="text" class="form-control" placeholder="Company/Organization" id="company">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>Project Type</label>
+                                    <select class="form-control" id="projectType">
+                                        <option value="">Select Project Type</option>
+                                        <option value="roblox">Roblox Development</option>
+                                        <option value="mobile">Mobile Games & Apps</option>
+                                        <option value="ar">Augmented Reality</option>
+                                        <option value="vr">Virtual Reality</option>
+                                        <option value="web">Web Development</option>
+                                        <option value="phygital">Phygital Campaign</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>Message</label>
+                                    <textarea rows="5" class="form-control" placeholder="Tell us about your project..." id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div id="success"></div>
+                            <div class="row">
+                                <div class="form-group col-xs-12 text-center">
+                                    <button type="submit" class="btn btn-success btn-lg">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center">
+            <div class="footer-above">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-4">
+                            <h3>Our Philosophy</h3>
+                            <p>At DANDAMPI, we believe interaction is one of the most powerful ways to educate, engage, and inspire.</p>
+                        </div>
+                        <div class="footer-col col-md-4">
+                            <h3>Connect With Us</h3>
+                            <ul class="list-inline">
+                                {% if site.email %}
+                                <li>
+                                    <a href="mailto:{{ site.email }}" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-envelope"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% if site.github_username %}
+                                <li>
+                                    <a href="https://github.com/{{ site.github_username }}" class="btn-social btn-outline" target="_blank">
+                                        <i class="fa fa-fw fa-github"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% if site.linkedin_username %}
+                                <li>
+                                    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="btn-social btn-outline" target="_blank">
+                                        <i class="fa fa-fw fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <div class="footer-col col-md-4">
+                            <h3>Technology</h3>
+                            <p>We deliver projects that users want to return to, talk about, and remember through playful, purposeful design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }} - Creative Technology Studio
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-top page-scroll visible-xs visible-sm">
+            <a class="btn btn-primary" href="#page-top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+
+        <!-- Portfolio Modals -->
+        {% for project in site.data.projects %}
+            <div class="portfolio-modal modal fade" id="portfolioModal{{ forloop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="modal-body">
+                                        <h2 class="text-center">{{ project.name }}</h2>
+                                        <hr class="star-primary">
+                                        
+                                        <!-- Project Media Carousel -->
+                                        {% if project.carousel and project.carousel.size > 0 %}
+                                        <div class="project-carousel">
+                                            <div id="projectCarousel{{ forloop.index }}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                <!-- Indicators -->
+                                                {% if project.carousel.size > 1 %}
+                                                <ol class="carousel-indicators">
+                                                    {% for item in project.carousel %}
+                                                    <li data-target="#projectCarousel{{ forloop.parentloop.index }}" data-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                                                    {% endfor %}
+                                                </ol>
+                                                {% endif %}
+                                                
+                                                <!-- Carousel Items -->
+                                                <div class="carousel-inner" role="listbox">
+                                                    {% for item in project.carousel %}
+                                                    <div class="item {% if forloop.first %}active{% endif %}">
+                                                        {% if item.type == "youtube" %}
+                                                        <div class="video-container">
+                                                            <iframe src="https://www.youtube.com/embed/{{ item.id }}?autoplay=0&rel=0&modestbranding=1&showinfo=0" 
+                                                                    frameborder="0" 
+                                                                    allowfullscreen
+                                                                    class="carousel-video">
+                                                            </iframe>
+                                                        </div>
+                                                        {% elsif item.type == "image" %}
+                                                        <div class="image-container">
+                                                            <img src="{{ item.src | prepend: site.baseurl }}" 
+                                                                 onerror="this.src='https://via.placeholder.com/600x400/003366/FFFFFF?text=Image+Not+Found'"
+                                                                 class="carousel-image" alt="Project Image">
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                                
+                                                <!-- Left and right controls -->
+                                                {% if project.carousel.size > 1 %}
+                                                <a class="left carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="prev">
+                                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="right carousel-control" href="#projectCarousel{{ forloop.index }}" role="button" data-slide="next">
+                                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <!-- Fallback to single image if no carousel data -->
+                                        <div class="text-center">
+                                            <img src="{{ project.image | prepend: site.baseurl }}" 
+                                                 onerror="this.src='https://via.placeholder.com/600x400/003366/FFFFFF?text={{ project.name | url_encode }}'"
+                                                 class="img-responsive modal-image" alt="{{ project.name }}">
+                                        </div>
+                                        {% endif %}
+                                        
+                                        <div class="project-details">
+                                            <p class="text-center">{{ project.description }}</p>
+                                            <div class="text-center project-categories">
+                                                <strong>Categories:</strong>
+                                                {% if project.category %}
+                                                    {% if project.category.size > 1 %}
+                                                        <!-- Multiple categories as array -->
+                                                        {% for cat in project.category %}
+                                                        <span class="category-badge">{{ cat | capitalize }}</span>
+                                                        {% endfor %}
+                                                    {% else %}
+                                                        <!-- Single category or first item of array -->
+                                                        {% if project.category.first %}
+                                                            <!-- It's an array with one item -->
+                                                            <span class="category-badge">{{ project.category.first | capitalize }}</span>
+                                                        {% else %}
+                                                            <!-- It's a string -->
+                                                            <span class="category-badge">{{ project.category | capitalize }}</span>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endif %}
+                                            </div>
+                                            <div class="text-center modal-buttons">
+                                                {% if project.cta_type == "play" %}
+                                                    {% assign button_text = "Play Now" %}
+                                                    {% assign button_icon = "fa-gamepad" %}
+                                                {% elsif project.cta_type == "download" %}
+                                                    {% assign button_text = "Download" %}
+                                                    {% assign button_icon = "fa-mobile" %}
+                                                {% else %}
+                                                    {% assign button_text = "View Project" %}
+                                                    {% assign button_icon = "fa-external-link" %}
+                                                {% endif %}
+                                                
+                                                <a href="{{ project.url }}" class="btn btn-success btn-lg" target="_blank">
+                                                    <i class="fa {{ button_icon }}"></i> {{ button_text }}
+                                                </a>
+                                                {% if project.instagram %}
+                                                <a href="{{ project.instagram }}" class="btn btn-instagram btn-lg" target="_blank">
+                                                    <i class="fa fa-instagram"></i> Instagram
+                                                </a>
+                                                {% endif %}
+                                                <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">
+                                                    <i class="fa fa-times"></i> Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <!-- Custom JavaScript -->
+        <script>
+        $(document).ready(function() {
+            // Highlight the top nav as scrolling occurs
+            $('body').scrollspy({
+                target: '.navbar-fixed-top',
+                offset: 51
+            });
+
+            // jQuery for page scrolling feature - requires jQuery Easing plugin
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: ($($anchor.attr('href')).offset().top - 50)
+                }, 1250, 'easeInOutExpo');
+                event.preventDefault();
+            });
+
+            // Closes the Responsive Menu on Menu Item Click
+            $('.navbar-collapse ul li a').click(function() {
+                $('.navbar-toggle:visible').click();
+            });
+
+            // Offset for Main Navigation
+            $('#mainNav').affix({
+                offset: {
+                    top: 100
+                }
+            })
+
+            // Contact form functionality
+            // Floating label functionality
+            $('body').on('input propertychange', '.floating-label-form-group', function(e) {
+                $(this).toggleClass('floating-label-form-group-with-value', !!$(e.target).val());
+            }).on('focus', '.floating-label-form-group', function() {
+                $(this).addClass('floating-label-form-group-with-focus');
+            }).on('blur', '.floating-label-form-group', function() {
+                $(this).removeClass('floating-label-form-group-with-focus');
+            });
+
+            // Contact form submission
+            $("#contactForm").submit(function(e) {
+                e.preventDefault();
+                
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var company = $("#company").val();
+                var projectType = $("#projectType").val();
+                var message = $("#message").val();
+                
+                // Basic validation
+                if (!name || !email || !message) {
+                    $('#success').html("<div class='alert alert-danger'>Please fill in all required fields.</div>");
+                    return;
+                }
+                
+                // Show success message
+                $('#success').html("<div class='alert alert-success'><strong>Thank you for your message!</strong> We'll get back to you soon.</div>");
+                
+                // Clear form
+                $('#contactForm')[0].reset();
+                $('.floating-label-form-group').removeClass('floating-label-form-group-with-value');
+                
+                // Create mailto link for manual handling
+                var subject = encodeURIComponent("New Project Inquiry" + (projectType ? " - " + projectType : ""));
+                var body = encodeURIComponent(
+                    "Name: " + name + "\n" +
+                    "Email: " + email + "\n" +
+                    (company ? "Company: " + company + "\n" : "") +
+                    (projectType ? "Project Type: " + projectType + "\n" : "") +
+                    "\nMessage:\n" + message
+                );
+                
+                // Open mail client (optional - for development)
+                // window.location.href = "mailto:{{ site.email }}?subject=" + subject + "&body=" + body;
+                
+                console.log("Form submitted:", { name, email, company, projectType, message });
+            });
+
+            // Clear success messages on focus
+            $('#name, #email, #company, #projectType, #message').focus(function() {
+                $('#success').html('');
+            });
+
+            // Portfolio Filter Functionality
+            $('.filter-btn').click(function() {
+                var filterValue = $(this).data('filter');
+                
+                // Update active button
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter portfolio items
+                if (filterValue === 'all') {
+                    $('.portfolio-item').removeClass('hidden').addClass('visible');
+                } else {
+                    $('.portfolio-item').each(function() {
+                        var categories = $(this).data('categories');
+                        if (categories && categories.toString().includes(filterValue)) {
+                            $(this).removeClass('hidden').addClass('visible');
+                        } else {
+                            $(this).removeClass('visible').addClass('hidden');
+                        }
+                    });
+                }
+            });
+
+            // Initialize portfolio items as visible
+            $('.portfolio-item').addClass('visible');
+
+            // Stop YouTube videos when modal is closed
+            $('.portfolio-modal').on('hidden.bs.modal', function () {
+                var modal = $(this);
+                // Find all iframes (YouTube videos) in this modal and reset their src
+                modal.find('iframe').each(function() {
+                    var src = $(this).attr('src');
+                    if (src) {
+                        $(this).attr('src', src);
+                    }
+                });
+            });
+
+            // Alternative method: pause videos by reloading iframe src
+            $('.close-modal, .btn[data-dismiss="modal"]').click(function() {
+                setTimeout(function() {
+                    $('.portfolio-modal iframe').each(function() {
+                        var src = $(this).attr('src');
+                        if (src) {
+                            $(this).attr('src', '');
+                            $(this).attr('src', src);
+                        }
+                    });
+                }, 300);
+            });
+        });
+        </script>
+    </body>
+</html>

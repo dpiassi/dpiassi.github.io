@@ -1,0 +1,18 @@
+<!-- Custom social media links -->
+<div class="social-media-list">
+  {% if site.github_username %}
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">
+      <svg class="svg-icon grey">
+        <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
+      </svg>
+      <span class="username">{{ site.github_username }}</span>
+    </a>
+  {% endif %}
+  
+  <a href="https://linkedin.com/in/dpiassi" target="_blank" rel="noopener noreferrer">
+    <svg class="svg-icon grey">
+      <use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use>
+    </svg>
+    <span class="username">dpiassi</span>
+  </a>
+</div>
