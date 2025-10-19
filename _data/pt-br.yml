@@ -144,7 +144,7 @@ projects:
 
   "hyperlight-wings":
     name: "Hyperlight Wings"
-    description: "Simulador de voo no Roblox desenvolvido durante o Roblox Fall Accelerator 2021, com física avançada e mecânicas multiplayer."
+    description: "Um jogo de combate aéreo acelerado desenvolvido durante o Roblox Fall Accelerator 2021, com mecânicas de voo em estilo arcade e batalhas aéreas dinâmicas."
 
   "inpeace":
     name: "InPeace Metaverso"
